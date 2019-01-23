@@ -1,0 +1,133 @@
+% !TEX root = ../thesis-example.tex
+%
+% ------------------------------------  --> cover title page
+% \begin{titlepage}
+% 	\pdfbookmark[0]{Cover}{Cover}
+%     \vglue -4.0cm
+%     \hspace{-4.1cm}
+%     \includegraphics[scale=1]{gfx/ucllogo.pdf}
+% 	\flushright
+% 	\hfill
+% 	\vfill
+% 	{\LARGE\thesisTitle \par}
+% 	\rule[5pt]{\textwidth}{.4pt} \par
+% 	{\Large\thesisName}
+% 	\vfill
+% 	\textit{\large\thesisDate} \\
+% 	Version: \thesisVersion
+% \end{titlepage}
+
+% ------------------------------------  --> main title page
+\begin{titlepage}
+	\pdfbookmark[0]{Titlepage}{Titlepage}
+	\tgherosfont
+	\vglue -4.0cm
+    \hspace{-4.1cm}
+    \includegraphics[scale=1]{gfx/ucllogo.pdf}
+    %\centering
+    \begin{center}
+    {\LARGE \thesisUniversity} \\[2mm]
+    \rule{9cm}{.4pt}\\
+    \medskip 
+    \textsf{\thesisUniversityInstitute} \\
+    \textsf{\thesisUniversityDepartment} \\
+     \bigskip\bigskip
+  	%\vfill
+ 	{\huge \color{ctcolortitle}\textbf{\thesisTitle} \\[8mm]}
+    \vspace{1.0mm} 
+    \medskip
+ 	{\LARGE \thesisName} \\[15mm]
+    {%\vfil
+    \begin{large}
+    \begin{minipage}[b]{12cm}
+     \centering \small{Thesis submitted in partial fulfilment of the requirements for the Degree of \\ \textbf{Doctor of Philosophy} of \textbf{University College London}}
+    \end{minipage}
+    \end{large}}
+    \vspace{4.2mm} \\
+     
+  \bigskip\bigskip\vfill
+	\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}l@{}}
+    Supervisors: & Examiners: \\[5mm]
+     \vtop{\halign{\strut\hfil#\hfil\cr
+       {\normalsize\thesisFirstSupervisor}\cr }}&%
+     \vtop{\halign{\strut\hfil#\hfil\cr
+       {\normalsize \thesisFirstReviewer} \\
+ 	  	{\small \thesisFirstReviewerDepartment} \\[-1mm]
+ 		{\small \thesisFirstReviewerUniversity}\cr}} \\% 
+     \vtop{\halign{\strut\hfil#\hfil\cr
+       {\normalsize\thesisSecondSupervisor}\cr}}&%
+     \vtop{\halign{\strut\hfil#\hfil\cr
+      {\normalsize\thesisSecondReviewer} \\
+ 	  	{\small \thesisSecondReviewerDepartment} \\[-1mm]
+ 		{\small \thesisSecondReviewerUniversity}\cr}}%
+  \end{tabular*}
+  \bigskip\bigskip
+ 	\vfill
+  \rule{9cm}{.4pt}\\
+  \medskip
+    \thesisDate \\
+    \end{center}
+    
+% 	{\Large \thesisUniversity} \\[4mm]
+% 	\includegraphics[width=6cm]{gfx/Clean-Thesis-Logo} \\[2mm]
+% 	\textsf{\thesisUniversityDepartment} \\
+% 	\textsf{\thesisUniversityInstitute} \\
+% 	\textsf{\thesisUniversityGroup} \\
+
+% 	\vfill
+% 	{\large \thesisSubject} \\[5mm]
+% 	{\LARGE \color{ctcolortitle}\textbf{\thesisTitle} \\[10mm]}
+% 	{\Large \thesisName} \\
+
+% 	\vfill
+% 	\begin{minipage}[t]{.27\textwidth}
+% 		\raggedleft
+% 		\textit{1. Reviewer}
+% 	\end{minipage}
+% 	\hspace*{15pt}
+% 	\begin{minipage}[t]{.65\textwidth}
+% 		{\Large \thesisFirstReviewer} \\
+% 	  	{\small \thesisFirstReviewerDepartment} \\[-1mm]
+% 		{\small \thesisFirstReviewerUniversity}
+% 	\end{minipage} \\[5mm]
+% 	\begin{minipage}[t]{.27\textwidth}
+% 		\raggedleft
+% 		\textit{2. Reviewer}
+% 	\end{minipage}
+% 	\hspace*{15pt}
+% 	\begin{minipage}[t]{.65\textwidth}
+% 		{\Large \thesisSecondReviewer} \\
+% 	  	{\small \thesisSecondReviewerDepartment} \\[-1mm]
+% 		{\small \thesisSecondReviewerUniversity}
+% 	\end{minipage} \\[10mm]
+% 	\begin{minipage}[t]{.27\textwidth}
+% 		\raggedleft
+% 		\textit{Supervisors}
+% 	\end{minipage}
+% 	\hspace*{15pt}
+% 	\begin{minipage}[t]{.65\textwidth}
+% 		\thesisFirstSupervisor\ and \thesisSecondSupervisor
+% 	\end{minipage} \\[10mm]
+
+	
+
+\end{titlepage}
+
+
+% ------------------------------------  --> lower title back for single page layout
+\hfill
+\vfill
+{
+	\small
+	\textbf{\thesisName} \\
+	\textit{\thesisTitle} \\
+	\thesisSubject, \thesisDate \\
+	Examiners: \thesisFirstReviewer\ and \thesisSecondReviewer \\
+	Supervisors: \thesisFirstSupervisor\ and \thesisSecondSupervisor \\[1.5em]
+	\textbf{\thesisUniversity} \\
+	\textit{\thesisUniversityGroup} \\
+	\thesisUniversityInstitute \\
+	\thesisUniversityDepartment \\
+	\thesisUniversityStreetAddress\ , \thesisUniversityPostalCode\ \\
+	\thesisUniversityCity
+}

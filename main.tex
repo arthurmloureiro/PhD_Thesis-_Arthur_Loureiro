@@ -1,0 +1,199 @@
+%% LLT: Turn off some annoying warnings...
+\RequirePackage{silence}
+\WarningFilter{titlesec}{Non standard sectioning command}
+\WarningFilter{scrreprt}{Usage of package}
+\WarningFilter{scrreprt}{Activating an ugly workaround}
+
+% **************************************************
+% Document Class Definition
+% **************************************************
+\documentclass[%
+	paper=A4,					% paper size --> A4 is default in Germany
+	twoside=true,				% onesite or twoside printing
+	openright,					% doublepage cleaning ends up right side
+	parskip=full,				% spacing value / method for paragraphs
+	chapterprefix=true,			% prefix for chapter marks
+	11pt,						% font size
+	headings=normal,			% size of headings
+	bibliography=totoc,			% include bib in toc
+	listof=totoc,				% include listof entries in toc
+	titlepage=on,				% own page for each title page
+	captions=tableabove,		% display table captions above the float env
+	draft=false,				% value for draft version
+]{scrreprt}%
+
+% **************************************************
+% Debug LaTeX Information
+% **************************************************
+%\listfiles
+
+% **************************************************
+% Information and Commands for Reuse
+% **************************************************
+%\newcommand{\thesisTitle}{The Universe in Harmonic Space: \\ Dark Energy and Neutrinos from Tomography of Cosmological Surveys}
+\newcommand{\thesisTitle}{The Universe in Harmonic Space: \\ Neutrinos and Dark Energy}
+\newcommand{\thesisName}{Arthur Loureiro}
+\newcommand{\thesisSubject}{Cosmology}
+\newcommand{\thesisDate}{August 26, 2018}
+\newcommand{\thesisVersion}{My First Draft}
+
+\newcommand{\thesisFirstReviewer}{Prof. John A. Peacock}
+\newcommand{\thesisFirstReviewerUniversity}{\centering\protect{University of Edinburgh}}
+\newcommand{\thesisFirstReviewerDepartment}{Institute for Astronomy}
+
+\newcommand{\thesisSecondReviewer}{John Doe}
+\newcommand{\thesisSecondReviewerUniversity}{\protect{Clean Thesis Style University}}
+\newcommand{\thesisSecondReviewerDepartment}{Department of Clean Thesis Style}
+
+\newcommand{\thesisFirstSupervisor}{Dr. Filipe B. Abdalla}
+\newcommand{\thesisSecondSupervisor}{Prof. Ofer Lahav}
+
+\newcommand{\thesisUniversity}{\protect{UNIVERSITY COLLEGE LONDON}}
+\newcommand{\thesisUniversityDepartment}{Department of Physics \& Astronomy}
+\newcommand{\thesisUniversityInstitute}{Faculty of Mathematics and Physical Sciences}
+\newcommand{\thesisUniversityGroup}{Astrophysics Group}
+\newcommand{\thesisUniversityCity}{London, UK}
+\newcommand{\thesisUniversityStreetAddress}{Gower Street}
+\newcommand{\thesisUniversityPostalCode}{WC1E 6BT}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% 		MY COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{todonotes} 
+\newcommand{\EQ}[2]{\begin{align} \label{Eq:#1} #2 \end{align}}
+\newcommand{\RED}[1]{\textcolor{red}{ $\Rightarrow$ #1 $\Leftarrow$ }}
+\newcommand{\FIL}[1]{\todo[inline, color=orange]{#1}}
+\newcommand{\flask}{\texttt{FLASK }}
+\newcommand{\mangle}{\texttt{MANGLE }}
+\newcommand{\healpix}{\texttt{HEALPIX }}
+\newcommand{\pliny}{\texttt{PLINY }}
+\newcommand{\uclcl}{\texttt{UCLCL }}
+\newcommand{\class}{\texttt{CLASS }}
+\newcommand{\camb}{\texttt{CAMB }}
+\newcommand{\NM}{$\sum m_{\nu}$}
+% **************************************************
+% Load and Configure Packages
+% **************************************************
+\usepackage[utf8]{inputenc}		% defines file's character encoding
+\usepackage[english]{babel} % babel system, adjust the language of the content
+\usepackage[					% clean thesis style
+	figuresep=colon,%
+	sansserif=true,%
+	hangfigurecaption=false,%
+	hangsection=true,%
+	hangsubsection=true,%
+	colorize=full,%
+	colortheme=bluemagenta,%
+% LLT: Use biber if using UTF8 encoding
+% 	bibsys=bibtex,%
+	bibsys=biber,%
+	bibfile=bib-refs,%
+	bibstyle=authoryear,%
+]{cleanthesis}
+
+\hypersetup{					% setup the hyperref-package options
+	pdftitle={\thesisTitle},	% 	- title (PDF meta)
+	pdfsubject={\thesisSubject},% 	- subject (PDF meta)
+	pdfauthor={\thesisName},	% 	- author (PDF meta)
+	plainpages=false,			% 	-
+	colorlinks=false,			% 	- colorize links?
+	pdfborder={0 0 0},			% 	-
+	breaklinks=true,			% 	- allow line break inside links
+	bookmarksnumbered=true,		%
+	bookmarksopen=true			%
+}
+
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage[cm]{sfmath}
+\usepackage{bm}
+\usepackage{wrapfig}
+\usepackage{lscape}
+%\usepackage{subfigure}
+%\usepackage[demo]{graphicx}
+\usepackage{subcaption}
+
+\setlength{\textfloatsep}{10pt plus 1.0pt minus 1.0pt}
+% **************************************************
+% Document CONTENT
+% **************************************************
+\begin{document}
+
+% --------------------------
+% rename document parts
+% --------------------------
+%\renewcaptionname{ngerman}{\figurename}{Abb.}
+%\renewcaptionname{ngerman}{\tablename}{Tab.}
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+
+% --------------------------
+% Front matter
+% --------------------------
+\pagenumbering{arabic}			% roman page numbing (invisible for empty page style)
+\pagestyle{empty}				% no header or footers
+\input{content/titlepages}		% INCLUDE: all titlepages
+\cleardoublepage
+\input{content/declaration}
+\pagestyle{plain}				% display just page numbers
+\input{content/abstract}		% INCLUDE: the abstracts (english and german)
+\cleardoublepage
+%
+\input{content/impact}		% INCLUDE: the abstracts (english and german)
+\cleardoublepage
+\input{content/acknowledgement} % INCLUDE: acknowledgement
+\cleardoublepage
+
+
+%\setcounter{tocdepth}{2}		% define depth of toc
+\tableofcontents				% display table of contents
+\cleardoublepage
+
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\cleardoublepage
+
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+\cleardoublepage
+
+% --------------------------
+% Body matter
+% --------------------------
+%\pagenumbering{arabic}			% arabic page numbering
+%\setcounter{page}{1}			% set page counter
+\pagestyle{maincontentstyle} 	% fancy header and footer
+
+\input{content/chapter-introduction} % INCLUDE: introduction
+\input{content/chapter-BOSS} % INCLUDE: related work
+\input{content/chapter-CosmologicalBOSS}	% INCLUDE: system
+\input{content/chapter-neutrinos} % INCLUDE: concepts
+\input{content/chapter-BayesianCl.tex} 
+\input{content/chapter-conclusion} % INCLUDE: conclusion
+\input{content/appendix}
+\cleardoublepage
+
+% --------------------------
+% Back matter
+% --------------------------
+{%
+\setstretch{1.1}
+\renewcommand{\bibfont}{\normalfont\small}
+\setlength{\biblabelsep}{0pt}
+\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+\printbibliography[nottype=online]
+%\printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+}
+\cleardoublepage
+
+
+% \input{content/colophon}
+% \cleardoublepage
+
+\newpage
+\mbox{}
+
+% **************************************************
+% End of Document CONTENT
+% **************************************************
+\end{document}
