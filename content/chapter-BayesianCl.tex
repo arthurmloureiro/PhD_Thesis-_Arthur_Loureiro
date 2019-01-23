@@ -1,11 +1,13 @@
 % !TEX root = ../thesis-example.tex
 %
-\chapter[An investigation of Bayesian-$C_{\ell}$ Estimators applied to Galaxy Clustering]{An investigation of Bayesian-$C_{\ell}$ Estimators applied to Galaxy Clustering}\label{Chap:BPL}
+\chapter[An investigation of Bayesian-$C_{\ell}$ Estimators applied to Galaxy Clustering]{An investigation of Bayesian Angular Power Spectra Estimators applied to Galaxy Clustering}\label{Chap:BPL}
 %\chapter{}\label{sec:concepts}
 
-\cleanchapterquote{Gotta go fast}{Sanic}{Video Game Myth}
+\cleanchapterquote{It's f*cking science!\\
+Just ask Albert Einstein, he invented space
+}{Danny Sexbang}{(Dinosaur Laser Fight, Ninja Sex Party)}
 
-\RED{Abstract}
+
 
 In this section, I present the investigation for applications of a fully Bayesian methodology to generally estimate angular power spectra from data distributed on a sphere. It provides tools for optimal power spectrum estimation of to CMB temperature, CMB polarisation modes, galaxy clustering, weak lensing convergence ($\kappa$), cosmic shear ($\gamma_1$ \& $\gamma_2$), and cross-correlations of all previous probes. In other words, this estimator works for any spin-0 fields, spin-2 fields, and cross-correlations; however, it has never been tested in the context of galaxy surveys. The method makes use of a Guided Hamiltonian Sampling, a variant of the usual Hamiltonian Sampling, to sample from the spherical harmonics coefficients,$a_{lm}$, and the angular power spectra, $C_{\ell}$. The final marginalised $C_{\ell}$'s provides covariance matrices and uncertainties with no the need of simulated mocks due to the sampling nature of the problem. I applied this method to partial and full-sky Euclid-like Log-Normal simulations and compared the results with a Pseudo Power Spectrum estimator.
 \RED{Improve here. What is the main point?}
@@ -315,7 +317,7 @@ p_i(t_0+\epsilon) & = p_i\left(t_0+\frac{\epsilon}{2}\right)+\frac{\eta}{2}\bm{\
 \qquad In summary, the Guided Hamiltonian Sampler takes the following steps:
 \begin{enumerate}
 \item Finds the peak of the posterior.
-\item Calculates the Hessian of the posterior distribution at the peak using Monte-Carlo integration to obtain the covariances. In this steps, the ideal number of samples is $N_s \geq \ell_{\tex{max}}^2 + 3\ell_{\tex{max}} - \ell_{\tex{min}}^2 - \ell_{\tex{min}} + 2$.\RED{This is wrong!}
+\item Calculates the Hessian of the posterior distribution at the peak using Monte-Carlo integration. More details are given in Section \ref{Sec:BPL:Hessian}.
 \item Performs an eigen-decomposition of the sampled Hessian matrix at the peak.
 \item Obtains the principal coordinates using the inverse of the Hessian's eigenvectors and eigenvalues.
 \item Sets the step sizes in the principal coordinates as the inverse square root of the eigenvalues of the Hessian matrix.
@@ -330,7 +332,7 @@ In conclusion, most of the free parameters found in HCM algorithms are set indep
 %          		SPIN-2 CONSIDERATIONS ON SAMPLING
 %---------------------------------------------------------------
 %\subsection{Spin-2 Fields considerations for GHS}
-\subsection{The Hessian Matrix of the Posterior Distribution}
+\subsection{The Hessian Matrix of the Posterior Distribution}\label{Sec:BPL:Hessian}
 In this section, I complement the final steps towards the sampling process with a GHS. The objective is to describe the process of calculating the Hessian Matrix at the peak of the potential, $\psi$, or the negative logarithm of the posterior distribution: 
 \begin{align}
 \psi(\mathbf{C},\mathbf{a}|\mathbf{d}) = & \frac{1}{2}(\mathbf{d}-\mathbf{YBa})^{\mathrm{T}}\mathbf{N}^{-1}(\mathbf{d}-\mathbf{YBa})+\sum_{\ell}\left( {\ell}+\frac{1}{2}\right)\left[ \mathrm{Tr}(\mathbf{C}_{\ell}^{-1}\boldsymbol{\sigma}_{\ell}) + \log\left|\mathbf{C}_{\ell} \right|\right] + \mathrm{const}\, .
@@ -407,11 +409,26 @@ Here, $\lambda_{{\ell},i}$ is the \textit{i}-th eigenvalue of the $\mathbf{G}_{\
 \end{align}
 where $\nabla_{ij}$ represents the derivative with respect with the $ij$-th component of the matrix $\mathbf{G}_{\ell}$. Next, to calculate the Hessian at the peak, one needs the second derivatives. This will aid the algorithm, guiding the sampler in the principal coordinates as mentioned in Section \ref{Sec:BPL:GHS}. The second derivatives can be expressed by
 \begin{align}
-    \frac{\partial^2\psi(\mathbf{G},\mathbf{a})}{\partial\mathbf{a}^2} & = \exp(-\mathbf{G}) - \mathbf{B}\mathbf{Y}^T\mathbf{N}^{-1}\mathbf{Y}\mathbf{B} \\
+    \frac{\partial^2\psi(\mathbf{G},\mathbf{a})}{\partial\mathbf{a}^2} & = \exp(-\mathbf{G}) - \mathbf{B}\mathbf{Y}^T\mathbf{N}^{-1}\mathbf{Y}\mathbf{B} \\\label{Eq:BPL:HessianAlms}
     \frac{\partial^2\psi(\mathbf{G},\mathbf{a})}{\partial\mathbf{G}_{\ell,ij}\partial\mathbf{G}_{\ell',pq}} & = \left( {\ell}+\frac{1}{2}\right)\left[-\mathrm{Tr}(\boldsymbol{\sigma}_{\ell}\nabla^2_{ij,pq} \exp(-\mathbf{G}_{\ell})) \right]\delta_{\ell\ell'} \\
-    \frac{\partial^2\psi(\mathbf{G},\mathbf{a})}{\partial\mathbf{G}_{\ell,ij}\partial\mathbf{a}_{\ell',m}} & = \mathbf{a}_{\ell,m}\nabla_{ij}\exp(-\mathbf{G}_{\ell})\delta_{\ell\ell'}.
+    \frac{\partial^2\psi(\mathbf{G},\mathbf{a})}{\partial\mathbf{G}_{\ell,ij}\partial\mathbf{a}_{\ell',m}} & = \mathbf{a}_{\ell,m}\nabla_{ij}\exp(-\mathbf{G}_{\ell})\delta_{\ell\ell'}.\label{Eq:BPL:HessianOffDiag}
 \end{align}
-With all the elements of the Hessian matrix established, one can proceed now to use the sampler as described previously. However, it is important to note that such matrix can easily achieve unpractical dimensions as it scales with $\sim 3\ell_{max}^2$. Therefore, the standard approach, taken by \cite{SreeThesis}, was to perform the analysis using the Hessian's diagonal as a proxy for the step-size. This works for the case where both data are Gaussian; however, such assumption starts to break when the underlying distribution is Log-Normal, the noise Poissonian and under the presence of masks in the survey.
+With all the elements of the Hessian matrix established, one can proceed now to use the sampler as described previously. 
+
+\qquad It is important to note that such matrix can easily achieve unpractical dimensions as it scales with $\sim 3\ell_{max}^2$. Therefore, the standard approach, taken by \cite{SreeThesis}, was to perform the analysis using the Hessian's diagonal as a proxy for the step-size. In this case, the off-diagonal term in Equation \ref{Eq:BPL:HessianOffDiag} are set to be zero.As an approximation, for cases where $\mathbf{N}^{-1}$ can be considered diagonal, one can simply calculate the second term of Equation \ref{Eq:BPL:HessianAlms} via Monte-Carlo integration. Given a random set of variables on the sphere, $\bm{\eta}$, such that $\langle \bm{\eta} \bm{\eta}^T \rangle = \mathbf{N}^{-1}$; where the quantity inside the expected value brackets can be sampled from a normal distribution. As a rule of thumb, the ideal number of samples to be taken in this process should be greater than the number of dimensions in the full posterior distribution, i. e. $N_s \geq \ell_{\tex{max}}^2 + 3\ell_{\tex{max}} - \ell_{\tex{min}}^2 - \ell_{\tex{min}} + 2$. 
+
+\qquad In this case, the second term of Equation \ref{Eq:BPL:HessianAlms} can be expressed as,
+\begin{align}
+    \mathbf{B}\mathbf{Y}^T\mathbf{N}^{-1}\mathbf{Y}\mathbf{B} & = \mathbf{B}\mathbf{Y}^T\langle \bm{\eta} \bm{\eta}^T \rangle\mathbf{Y}\mathbf{B} \\
+    & = \langle (\mathbf{B}\mathbf{Y}^T\bm{\eta}) (\mathbf{B}\mathbf{Y}^T\bm{\eta})^T \rangle.
+\end{align}
+As one is only interested in the diagonal,
+\begin{align}
+    \text{diag}\left(\mathbf{B}\mathbf{Y}^T\mathbf{N}^{-1}\mathbf{Y}\mathbf{B}\right) & = \text{diag}\left(\langle (\mathbf{B}\mathbf{Y}^T\bm{\eta}) (\mathbf{B}\mathbf{Y}^T\bm{\eta})^T \rangle\right) \\
+    & = \left\langle \text{diag} \left[ (\mathbf{B}\mathbf{Y}^T\bm{\eta}) (\mathbf{B}\mathbf{Y}^T\bm{\eta})^T \right] \right\rangle \\
+    & = \left\langle \left[\mathbf{B}\mathbf{Y}^T\bm{\eta} \right]^2 \right\rangle.
+\end{align}
+These approximations make the estimation of the Hessian at the peak of the posterior much faster to calculate. However, compromises are made. Since one is not taking into account the off-diagonal elements of the Hessian, this could at least for low-$\ell$ modes, bias results due to the high correlation that can be introduced via mode mixing due to the presence of a mask. More about this is explored in Section \ref{Sec:BPL:AlmsInvestigation}. Taking this approach also means that the algorithm expressed in the end of Section \ref{Sec:BPL:GHS} is slightly different. Instead of performing an eigen-decomposition, one simply uses the inverse of the diagonal instead of the principal coordinates; the step sizes being then the square-root of these quantities.
 
 %--------------------------------------------------------------
 %          		CONVERGENCE STATISTICS
@@ -458,11 +475,10 @@ Universe --, a Gaussian approximation leads to nonphysical values. Log-Normal si
 \end{equation}
 where $\Delta\Omega$ is the area of a given pixel and $\bar{n}(\Omega,z)$ is the angular and radial selection function of galaxies. 
 
-\qquad Here, as in Section \ref{Sec:Cov}, I make of use of the \texttt{Flask} code to generate the Log-Normal simulations \citep{Flask2016} and to produce galaxy clustering maps using a Euclid-like redshift distribution and, for the partial-sky case, mask. An example of the simulations created can be found in Figures \ref{fig:BPL:LNFSMAP} and \RED{... for a mask  close to what the Euclid survey observing strategy will be \citep{2011EuclidRedPaper}.} %shows the redshift distribution used, while Figures \RED{?} and \RED{?} show the masks considered in the partial sky cases, the second one being
+\qquad Here, as in Section \ref{Sec:Cov}, I make of use of the \texttt{Flask} code to generate the Log-Normal simulations \citep{Flask2016} and to produce galaxy clustering maps using a Euclid-like redshift distribution and, for the partial-sky case, mask. An example of the simulations created can be found in Figures \ref{fig:BPL:LNFSMAP},  \ref{fig:BPL:LN-Euclid-N8-dens}, \ref{fig:BPL:LN-LowSN-overd}, and \ref{fig:BPL:LN-HighSN-dens}. All masked ones using a mask  close to what the Euclid survey observing strategy will be \citep{2011EuclidRedPaper}. %shows the redshift distribution used, while Figures \RED{?} and \RED{?} show the masks considered in the partial sky cases, the second one being
 
 
 \section{Investigations on Simulated Data}
-
 \subsection{Full Sky}
 \begin{figure}
 \begin{center}
@@ -512,76 +528,98 @@ This section investigates the behaviour of the Bayesian estimator in the full sk
 \end{figure}
 
 
-\subsection{Investigation of spherical harmonics correlations under a mask}
-The presence of a mask in a survey, although realistic, creates correlations between different modes in the $C_{\ell}$s and also in the spherical harmonic coefficients. Observing only the first two modes, i. e. $\ell = 2 \, \& \, 3$, I investigate here the correlations that are introduced given different considered geometries for the angular selection in the sky -- including an Euclid-like mask. This correlations introduced by the mask in the $a_{\ell}m$s coefficients can be explained via the coupling matrix above \RED{find that paper tomorrow and put the thing here}:
-
+\subsection{Investigation of spherical harmonics correlations under a mask}\label{Sec:BPL:AlmsInvestigation}
+The presence of a mask in a survey, although realistic, creates correlations between different modes in the $C_{\ell}$s and also in the spherical harmonic coefficients. Consider, once more, the spherical harmonic decomposition of a galaxy map,\footnote{A catalogue of galaxies projected in a spherical shell.} $\delta^g$, in a case of partial sky. As in Equation \eqref{Eq:define_delta_p},
+\begin{equation}
+    \tilde{a}_{\ell m} = \sum_i \delta^p_i Y_{\ell m}(\Omega_i)w_i\Delta\Omega
+\end{equation}
+where, $\Delta\Omega$ is the area of a pixel in the pixelised map; and $w_i$ is a weight function value at pixel $i$ which can be transformed via spherical harmonic decomposition as \citep{Efstat2004},
+\begin{equation}
+    \tilde{w}_{\ell m} = \sum w_i Y_{\ell m}(\Omega_i)\Delta\Omega.
+\end{equation}
+Therefore, according to \cite{PolSpice2001} and \cite{Efstat2004}, the true $a_{\ell m}$, the spherical harmonics if one had a full sky observation, are related to the observed ones as,
+\begin{equation}
+    \tilde{a}_{\ell m} = \sum_{\ell' m'} a_{\ell' m'}\mathcal{K}_{\ell m \ell' m'}, 
+\end{equation}
+where the coupling matrix, $\mathcal{K}_{\ell m \ell' m'}$, is defined in terms of the Wigner-3j symbols as
+\begin{align}
+    \mathcal{K}_{\ell m \ell' m'} = & \sum_{\ell'' m''} (-1)^{m'}(-1)^{m''} \tilde{w}_{\ell'' m''} \left[\frac{(2\ell + 1)(2\ell'+1)(2\ell''+1)}{4\pi} \right]^{1/2} \nonumber \\
+    & \quad \times \begin{pmatrix} \ell & \ell' & \ell'' \\ 0 & 0 & 0 \end{pmatrix}\begin{pmatrix} \ell & \ell' & \ell'' \\ m & -m' & -m'' \end{pmatrix}.
+\end{align}
+which accounts for the mixing of modes in the spherical harmonic coefficients in the presence of a mask. This coupling matrix manifest itself as correlations between different $\tilde{a}_{\ell m}$ which are extremely related to the geometry of the survey.
 
 \begin{figure}
 \begin{subfigure}[b]{.5\textwidth}
  \includegraphics[scale=0.33]{BPL-FIGS/RandomBand_fsky_mask.pdf}
-  \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \caption{Mask with $f_{sky} = 0.1$.}
+  \label{fig:BPL:PoleMask}
 \end{subfigure}
 \begin{subfigure}[b]{.5\textwidth}
  \includegraphics[scale=0.34]{BPL-FIGS/RandomBand_fsky_map.pdf}
-  \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \caption{Simulated data}
+  \label{fig:BPL:PoleMap}
 \end{subfigure}\\
 \begin{subfigure}[b]{\textwidth}
  \includegraphics[width=\textwidth]{BPL-FIGS/RandomBand_fsky_01_trianglePlot.pdf}
-  \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \caption{Marginalised posterior}
+  \label{fig:BPL:PoleTri}
 \end{subfigure}
-\caption{test}
-\label{fig:BPL:EuclidMask}
+\caption[Investigation of correlation spherical harmonics for $\ell = 2\, \& \, 3$ for a mask with a spherical cap containing only a 10\% sky fraction]{Investigation of correlations in the spherical harmonics for $\ell = 2\, \& \, 3$ for a mask with a spherical cap containing only a 10\% sky fraction. \textit{(a)} Shows the mask used in the analysis. \textit{(b)} Shows the Gaussian simulated data. Data was generated using only the same modes as the ones probed, $\ell = 2,3$. \textit{(c)} Shows the full posterior for this case, the first two parameters are the $C_{\ell}$s while the following ones are the real and imaginary parts of the related spherical harmonics. Dashed lines show the fiducial $C_{\ell}$ values used to generate the simulations. Note that, in this case, correlations are introduced in $a_{\ell m}$s with the same phase, e.g. same $m$.}
+\label{fig:BPL:Pole}
 \end{figure}
+
+\qquad Observing only the first two modes, i. e. $\ell = 2 \, \& \, 3$, I investigate here the correlations that are introduced given different considered geometries for the angular selection of a survey. The first two simulations, presented in Figures \ref{fig:BPL:Pole} and \ref{fig:BPL:Blob}, are Gaussian while the one presented in Figure \ref{fig:BPL:Euclid-N8} is Log-Normal. All simulations presented in this section use the same fiducial $C_{\ell}$, noise level, and have a very low-resolution, $N_{side}=8$, as the intention here is \textbf{not} to marginalise over the spherical harmonic coefficients. Even thought the intention of this section is merely illustrative, going to higher resolutions and higher modes without treating the $a_{\ell m}$s as nuisance parameters requires a great amount of computational disk space and also impractical to observe correlations between the coefficients. 
+
+\qquad The first first mask, presented in Figure \ref{fig:BPL:PoleMask} is a spherical cap \RE{Continue here...}
+
+%This correlations introduced by the mask in the $a_{\ell}m$s coefficients can be explained via the coupling matrix above \RED{find that paper tomorrow and put the thing here}:
 
 \begin{figure}
 \begin{subfigure}[b]{.5\textwidth}
  \includegraphics[scale=0.33]{BPL-FIGS/Blob_fsky_01_mask.pdf}
-  \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \caption{Mask with $f_{sky} \approx 0.31$.}
+  \label{fig:BPL:blobMask}
 \end{subfigure}
 \begin{subfigure}[b]{.5\textwidth}
  \includegraphics[scale=0.34]{BPL-FIGS/Blob_fsky_01_map.pdf}
-  \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \caption{Simulated data}
+  \label{fig:BPL:blobMap}
 \end{subfigure}\\
 \begin{subfigure}[b]{\textwidth}
  \includegraphics[width=\textwidth]{BPL-FIGS/Blob_fsky_01_trianglePlot.pdf}
-  \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \caption{Marginalised posterior}
+  \label{fig:BPL:BlobTriang}
 \end{subfigure}
-\caption{test}
-\label{fig:BPL:EuclidMask}
+\caption[Investigation of correlation spherical harmonics for $\ell = 2\, \& \, 3$ for a mask with four spherical caps with different sizes containing a 10\% sky fraction]{Investigation of correlations in the spherical harmonics for $\ell = 2\, \& \, 3$ for a mask with four spherical caps with different sizes. This simulation contains 31\% sky coverage. \textit{(a)} Shows the mask used in the analysis. \textit{(b)} Shows the Gaussian simulated data. Data was generated using only the same modes as the ones probed, $\ell = 2,3$. \textit{(c)} The full posterior for this case, the first two parameters are the $C_{\ell}$s while the following ones are the real and imaginary parts of the related spherical harmonics. Dashed lines show the fiducial $C_{\ell}$ values used to generate the simulations. For this survey geometry, correlations are introduced between $a_{\ell m}$s and $a'_{(\ell-1),(m-1)}$. However, such correlations do not deviate the marginalised posterior on the $C_{\ell}$s from the fiducial value.}
+\label{fig:BPL:Blob}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}[b]{.5\textwidth}
  \includegraphics[scale=0.33]{BPL-FIGS/Flask-Euclid-lowEll-N8_mask.pdf}
-  \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \caption{Euclid-Like Mask with $f_{sky} = 0.336 $.}
+  \label{fig:BPL:LN-Euclid-N8-mask}
 \end{subfigure}
 \begin{subfigure}[b]{.5\textwidth}
  \includegraphics[scale=0.34]{BPL-FIGS/Flask-Euclid-lowEll-N8_map.pdf}
-  \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \caption{Simulated data}
+  \label{fig:BPL:LN-Euclid-N8-dens}
 \end{subfigure}\\
 \begin{subfigure}[b]{\textwidth}
  \includegraphics[width=1.1\textwidth]{BPL-FIGS/Flask-Euclid-lowEll-N8_trianglePlot.pdf}
-  \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \caption{Marginalised posterior}
+  \label{fig:BPL:LN-Euclid-N8-triang}
 \end{subfigure}
-\caption{test}
-\label{fig:BPL:EuclidMask}
+\caption[Investigation of correlation in spherical harmonics for $\ell = 2\, \& \, 3$ for a low resolution Euclid-like mask containing a 33.6\% sky fraction]{Correlation between spherical harmonics for $\ell = 2\, \& \, 3$ for a low resolution Euclid-like mask. This simulation contains 33.6\% sky coverage. \textit{(a)} Mask used in the simulation. \textit{(b)} Shows the Log-normal simulated data with Poissonian noise, generated using only $\ell = 2,3$. \textit{(c)} Once more, the full posterior resulting from the Bayesian estimator. First two parameters are the $C_{\ell}$s while the following ones are the real and imaginary parts of the related spherical harmonics. Dashed lines show the fiducial $C_{\ell}$ values used to generate the simulations. This case contains more complex correlations between the $a_{\ell m}$s.}
+\label{fig:BPL:Euclid-N8}
 \end{figure}
 
 \subsection{Anistropic Noise: Case Study of Euclid's Clustering}\label{Sec:Noise}
-
+\RED{TALK ABOUT THE REDHISFT RANGE AND ALL!}
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.40]{BPL-FIGS/Euclid-Foot-N32.pdf}
-\caption[]{Euclid-like mask}
+\caption[Euclid-like mask with $N_{side} = 32$]{Euclid-like mask with $N_{side} = 32$ used for the simulations and analysis presented in Figures \ref{fig:BPL:LogNormalFSAnalysis} and \ref{fig:BPL:LogNormalFSAnalysisHighSN}.}
 \label{fig:BPL:EuclidMask}
 \end{center}
 \end{figure}
@@ -592,12 +630,12 @@ The presence of a mask in a survey, although realistic, creates correlations bet
 \begin{subfigure}[b]{.5\textwidth}
  \includegraphics[scale=0.35]{BPL-FIGS/Euclid-Overdensity-N32.pdf}
   \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \label{fig:BPL:LN-LowSN-overd}
 \end{subfigure}
 \begin{subfigure}[b]{.5\textwidth}
  \includegraphics[scale=0.35]{BPL-FIGS/Euclid-NoiseMap-N32.pdf}
   \caption{}
-  \label{fig:BPL:LNFSMAP}
+  \label{fig:BPL:LN-LowSN-noise}
 \end{subfigure}\\
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -609,7 +647,7 @@ The presence of a mask in a survey, although realistic, creates correlations bet
   \includegraphics[scale=0.50]{BPL-FIGS/Euclid-Foot-LN-PoiNoi-N32_Hanson.pdf}
   \caption{}
 \end{subfigure}
-\caption[Bayesian-$C_{\ell}$ estimator tested on a full sky \flask log-normal simulation.]{\textit{(a)} Full sky log-normal simulation with a Poissonian noise realisation generated with \flask for galaxy clustering.  \textit{(b)} Results from the Bayesian-$C_{\ell}$ estimator benchmarking tests on a log-normal simulation. The red line shows the fiducial angular power spectrum used to generate the simulation, while the blue line shows the results obtained with the Pseudo-$C_{\ell}$ estimator, and the black line is the mode of the Bayesian estimator samples and the shaded region shows the 68\% confidence regions from the sampled posterior, $\Pr (\{C_{\ell}\}|\mathbf{d})$ \textit{(c)} Convergence diagnosis using the Hanson test on the sampled chain. Values between 0.8 and 1.2 demonstrate that an acceptable convergence is able to recover the fiducial power spectrum. Results here were also obtained with $N_{samples} = 105,000$.}
+\caption[Bayesian-$C_{\ell}$ estimator tested on a Euclid-like \flask log-normal simulation with low signal-to-noise.]{\textit{(a)} Log-normal simulation with a Poissonian noise realisation generated with \flask for galaxy clustering using an Euclid-like mask (see Figure \ref{fig:BPL:EuclidMask}). \textit{(b)} Inverse-noise map used in the Bayesian estimator for the analysis. Here, $\bar{n}^{-1}\approx 2.85\times 10^{-4}$ galaxies/steradians. \textit{(c)} Results from the Bayesian-$C_{\ell}$ estimator tests. The red line shows the fiducial angular power spectrum used to generate the simulation, blue line shows the results obtained with the Pseudo-$C_{\ell}$ estimator. Finally, the black line is the mode of the Bayesian estimator samples and the shaded region shows the 68\% confidence regions from the sampled posterior. \textit{(d)} Hanson test demonstrating an acceptable convergence is able to recover the fiducial power spectrum with satisfactory accuracy. Results here were obtained with $N_{samples} = 335,000$.}
 \label{fig:BPL:LogNormalFSAnalysis}
 \end{figure}
 
@@ -645,8 +683,35 @@ The presence of a mask in a survey, although realistic, creates correlations bet
   \includegraphics[scale=0.50]{BPL-FIGS/Euclid-foot-LN-PoiNoi-N32-HISTOGRAM-ell-62.pdf}
   \caption{$\ell = 62$}
 \end{subfigure}
-\caption[Bayesian-$C_{\ell}$ estimator tested on a full sky \flask log-normal simulation.]{\RED{ells} Low signal to noise, comment on l=62}
+\caption[Examples of marginalised 1D posteriors for individual $\ell$-modes for the case of a Euclid-like mask and a very low signal-to-noise.]{Examples of the marginalised 1D posteriors for individual $\ell$-modes for the case of a Euclid-like mask and a very low signal-to-noise, $\bar{n}^{-1}\approx 2.85\times 10^{-4}$ galaxies/steradians. Note that some cases exhibit a secondary peak, like in the \textit{(f)} panel, which coincides with the value estimated by the Pseudo-$C_{\ell}$ estimator. Even though in some cases the mean and standard deviation of the samples are far away from the fiducial value, the peak is at the correct value in most cases.}
 \label{fig:BPL:Euclid-Ells}
+\end{figure}
+
+
+
+\begin{figure}
+\begin{subfigure}[b]{.5\textwidth}
+ \includegraphics[scale=0.34]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_map.pdf}
+  \caption{}
+  \label{fig:BPL:LN-HighSN-dens}
+\end{subfigure}
+\begin{subfigure}[b]{.5\textwidth}
+ \includegraphics[scale=0.34]{BPL-FIGS/Euclid-LN-PNoi-N32-NoiseMap.pdf}
+  \caption{}
+  \label{fig:BPL:LN-HighSN-noise}
+\end{subfigure}\\
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[scale=0.50]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_HPDCls.pdf}
+  \caption{}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[scale=0.50]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_Hanson.pdf}
+  \caption{}
+\end{subfigure}
+\caption[Bayesian-$C_{\ell}$ estimator tested on a Euclid-like \flask log-normal simulation with signal-to-noise similar to Euclid's.]{\textit{(a)} Log-normal simulation with a Poissonian noise realisation generated with \flask for galaxy clustering using an Euclid-like mask (see Figure \ref{fig:BPL:EuclidMask}) and redshift distribution. \textit{(b)} Inverse-noise map used in the Bayesian estimator for the analysis with $\bar{n}^{-1}\approx 2.86\times 10^{-8}$ galaxies/steradians -- which is close to forecasts for Euclid \citep{2011EuclidRedPaper,2017EuclidLSST}. \textit{(c)} Results from the Bayesian-$C_{\ell}$ estimator tests. The red line shows the fiducial angular power spectrum used to generate the simulation, blue line shows the results obtained with the Pseudo-$C_{\ell}$ estimator. Black line is the mode of the Bayesian estimator samples and the shaded region shows the 68\% confidence regions from the sampled posterior, after marginalising over the $a_{\ell m}$ coefficients. \textit{(d)} Hanson test: here, it looks at first instance that the chain is still not converged. However, as this case contains a higher signal-to-noise ratio, the marginalised posteriors are converged as it can be seen in Figure \ref{fig:BPL:Euclid-Ells-HighSN}. Results were obtained with $N_{samples} = 435,000$.}
+\label{fig:BPL:LogNormalFSAnalysisHighSN}
 \end{figure}
 
 
@@ -681,15 +746,14 @@ The presence of a mask in a survey, although realistic, creates correlations bet
   \includegraphics[width=\textwidth]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_HISTOGRAM-ell-62.pdf}
   \caption{$\ell = 62$}
 \end{subfigure}
-\caption[Bayesian-$C_{\ell}$ estimator tested on a full sky \flask log-normal simulation.]{High signal-to-noise}
-\label{fig:BPL:Euclid-Ells}
+\caption[Examples of marginalised 1D posteriors for individual $\ell$-modes for the case of a Euclid-like mask and signal-to-noise.]{Examples of the marginalised 1D posteriors for individual $\ell$-modes for the case of a Euclid-like mask and signal-to-noise, $\bar{n}^{-1}\approx 2.86\times 10^{-8}$ galaxies/steradians. For this situation, one can observe how the high-$\ell$ mode present a more Gaussian-like distribution as the low-$\ell$ modes are much more skewed. In most cases, the marginalised posterior's peak is matching the input fiducial $C_{\ell}$.}
+\label{fig:BPL:Euclid-Ells-HighSN}
 \end{figure}
 
 
 
 
-
-\subsection{Investigation of the Hessian's impact}
+%\subsection{Investigation of the Hessian's impact}
 % \textcolor{red}{Nside = 1024 Number of Shells = 2}
 
 % Brief explanation of how Flask works.
