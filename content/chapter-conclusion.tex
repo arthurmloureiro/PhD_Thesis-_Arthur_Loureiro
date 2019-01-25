@@ -1,6 +1,7 @@
 % !TEX root = ../thesis-example.tex
 %
-\chapter{Summary, Conclusions \& Future Prospects}
+\chapter{Final Considerations, Conclusions \& Future Prospects}
+\label{Chap:Conclusions}
 \label{Chap:Conclusions}
 \cleanchapterquote{From the point of ignition \\
 To the final drive \\
@@ -53,14 +54,13 @@ As the scenario of a new paradigm shift in cosmology seems to be in the horizon 
 %\Blindtext[3][2]
 
 \section{Towards primordial non-Gaussianities: Bayesian-$C_{\ell}$ estimator and $f_{nl}$}
-\begin{itemize}
-    \item talk about known problems with pcl
-    \item low-ells and Euclid signal-to-noise
-    \item importance for fnl
-    \item future work with Euclid and test it with shear
-    \item modify it for better perfomance with variable time step leap-frog
-    \item sparse hessian?
-\end{itemize}
+As outlined in Section \ref{Sec:Concl:NeutrinoFnl}, one of my future research objectives is to produce accurate and precise measurements of the primordial non-Gaussianity parameter, $f_{nl}$. If non-zero, measurements of $f_{nl}$ are a clear indication of new physics and a very important step beyond the $\Lambda$CDM model as inflationary models predict perfectly Gaussian primordial fluctuations \footnote{Of course, inflation theoreticians can always tweak the theory if $f_{nl}$ turns out not to be zero, but that is a different problem we are currently facing in physics and cosmology; one of a philosophical nature whose debate is beyond the scope of this thesis.}.
+
+\qquad In galaxy surveys, most of the information related to $f_{nl}$ is in the large scales. Two problems complicate measurements in this region of the power spectrum. The first one is `cosmic variance', or sample variance. This is mostly due to the fact that the sky is limited. Even if one could make full sky observations, there are just some many modes and phases the sky can be divided into for the large scales to be properly probed. This problem can be partially solved by using a multi-tracer approach \cite{2013AbramoLeonard,2016AbramoSeccoLoureiro}. The second issue is related to difficulties on obtaining a measurement for these large scales. A Pseudo-$C_{\ell}$ approach is ideal when one does need low-$\ell$ information (not how on Chapters \ref{Chap:BOSS}, \ref{Chap:BOSS-Cosmo}, and \ref{Chap:Neutrinos} the $\ell$-ranges all start after $\ell > 13$); however, as the PCL estimator is not minimum variance, it really has trouble getting accurate measurements for the larger scales. 
+
+\qquad Here, I argue that the Bayesian-$C_{\ell}$ estimator is the optimal solution for both problems at the same time. Its potential to optimally estimate auto- and cross-power spectra of correlated cosmological fields with no need for complex simulations to obtain uncertainty estimates makes this estimator the perfect candidate for probing $f_{nl}$ using galaxy surveys. Nonetheless, some modifications should be made in the method in order to achieve better computational performance and satisfactory convergence with less samples. A simple modification would be to implement a variable time step during the leap-frog integration method inside the GHS as the one used in \cite{2013-LNHamiltonian}. Another improvement would come from implementing the full Hessian for the low-$\ell$ modes to properly account for correlations introduced to the mask (see Section \ref{Sec:BPL:AlmsInvestigation} for details).
+
+\qquad In the following months, as I work as an Euclid PDRA, I will be performing tests on measuring cosmic shear and cross-correlations between cosmic shear and galaxy clustering using this methodology. I will also be validating this method with both log-normal and proper Euclid N-Body simulations for both cases.  Finally, an extension to obtain Mass Maps from cosmic shear measurements will be investigated with the purpose of creating convergence reconstruction maps for cosmological investigations.
 
 \section{Future Work} 
 \subsection{Preparing for Euclid, DESI, and more}
@@ -73,7 +73,7 @@ With increasingly large future photometric and spectroscopic surveys such as LSS
 
 \qquad On the context of Euclid, I will be working during the following year as an Euclid Post-Doctoral Research Associate at University College London with the purpose of extending the pipelines I have developed for the BOSS study to weak lensing measurements for power spectra estimation of shear and convergence fields. I will work on development, validation and verification of the weak lensing pseudo-$C_{\ell}$ pipelines, including also covariance matrix estimation for these measurements. Further development on the Bayesian-$C_{\ell}$ estimator outlined in Section \ref{Sec:BPL} will also aid in benchmarking the pipelines. This will allow me to extend the horizons and prepare the grounds from when future observations from Euclid are available. These pipelines will also be tested with Euclid flagship simulations and, possibly, with public photometric data from the KiDS Collaboration \citep{2017KiDS-DR3}.
 
-\subsection{Neutrino Masses \& Non-Gaussianities}
+\subsection{Neutrino Masses \& Non-Gaussianities}\label{Sec:Concl:NeutrinoFnl}
 Future surveys such as Euclid, DESI, and LSST will have the potential to solve key cosmological questions. Two of them, regarding neutrino properties and non-Gaussianities in the early Universe, are my main focus of interest. Due to their large survey volumes, these cosmological instruments are ideal to set extremely accurate and precise constraints for neutrino parameters such as $\sum m_{\nu}$, the hierarchy, and $m_{0}^{\nu}$, together with early universe parameters such as $f_{nl}$. DESI, Euclid, and LSST have a great potential to obtain galaxy samples beyond just the usual red and blue samples. Cross-correlations between these surveys could solve photometric redshift estimation issues. Photometric surveys like Euclid, LSST, and KiDS will additionally obtain unprecedentedly accurate shape measurements for weak lensing measurements. My future research will be focused on obtaining not only precise cosmological measurements, but also accurate cosmological measurements. One of my key objectives is to deal with effects that bias our cosmological conclusions: both methodological (e.g. redshift distribution estimation, fingers-of-god, intrinsic alignments) and observational (e. g. seeing, psf, extinction). Here, once more, I argue that the use of angular power spectra as a unified framework allows for optimal control of such systematic issues.
 
 \qquad In most cases, methodological systematics can be modelled into a concise Bayesian framework and treated as nuisance parameters while probing the cosmological parameters of interest. Effects like extra Poissonian shot-noise can easily mimic lower neutrino masses as these also tend to increase power in all scales. This can be avoided by considering extra shot-noise as a nuisance parameter in the cosmological analysis. However, this approach is only possible when the modelling of phenomena is an option. For cases where unknown or observational systematics are at play, methods like mode-projection can be used within the $C_{\ell}$ framework to deal with systematic effects which affect specific scales \cite{Boris2013}. For non-Gaussianities studies, most of the information about $f_{nl}$ is contained in large scales, meaning that multiple galaxy tracers and quasar samples are necessary to beat the effects of cosmic variance.
