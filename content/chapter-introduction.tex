@@ -126,9 +126,9 @@ where $S_k(r)$ takes different forms depending on the overall geometry of the Un
 \begin{equation}
 S_k(r) = \frac{\sin(\sqrt[]{K}r)}{\sqrt[]{K}r} = 
 \begin{cases}
-\sin (r), & \quad K = 1 \quad \text{(open geometry)} \\
+\sin (r), & \quad K = 1 \quad \text{(closed geometry)} \\
 r, & \quad K = 0 \quad \text{(flat geometry)} \\
-\sinh (r) & \quad K = -1 \quad \text{(closed geometry)}.
+\sinh (r) & \quad K = -1 \quad \text{(open geometry)}.
 \end{cases}
 \label{Eq:Intro:Sk}
 \end{equation}
@@ -275,7 +275,7 @@ and the equation-of-state for radiation is consistent with the pressure exerted 
 \subsubsection{Baryonic Matter, $\Omega_b$ :}
 Baryonic matter constitutes all matter as we commonly refer to: all the atoms in the periodic table, electrons, neutrons, protons and more. In other words, any sort of particles described by the Standard Model of Particle Physics (Figure \ref{fig:Intro:StandardModel}) -- apart from neutrinos which, even though being massive, behave close to being relativistic in the early Universe. The baryonic matter density behaves similarly to a gas with a certain temperature but with zero chemical potential. Baryons interact with other components not only via gravitational interaction but also via the electromagnetic force. Therefore, baryons and photons are coupled throughout the history of the Universe; during this phases, baryonic matter has an equation-of-state $p = \rho/3$. After photons and baryons decouple, this component behaves as a pressureless fluid with an equation-of-state $p=0$. 
 
-\qquad In a seminal work by \cite{1998BaryonContent}, the authors estimate the baryonic content of the Universe using four different methods at low redshift ($z \approx 0$), high redshift ($z\approx 3$) gas components, and big bang nucleosynthesis (BBN) abundances. The low redshift indicators contain stars in elliptical, spiral, and irregular galaxies, neutral atomic gas, plasma in clusters, warm and cool plasma in the intermediate mean in cluster groups -- with a sum of $\Omega_b = 0.021$. High redshift indicators constitute damped absorbers and Ly$\alpha$ forest clouds, representing a value of $\Omega_b$ agreeing with the low redshift measurements. From BBN, the abundances of Deuterium and Helium also indicate a baryonic content of $\Omega_b \approx 0.021\pm 0.007$. These values are consistent with the current value found by \cite{2018PlanckCosmology} ($\Omega_b h^2 = 0.0224 \pm 0.0001$) and the values found in BOSS analysis in Chapter \ref{Chap:BOSS-Cosmo}.
+\qquad In a seminal work by \cite{1998BaryonContent}, the authors estimate the baryonic content of the Universe using four different methods at low redshift ($z \approx 0$), high redshift ($z\approx 3$) gas components, and big bang nucleosynthesis (BBN) abundances \citep{2000-BBN-Review,2016R-BBN-Review}. The low redshift indicators contain stars in elliptical, spiral, and irregular galaxies, neutral atomic gas, plasma in clusters, warm and cool plasma in the intermediate mean in cluster groups -- with a sum of $\Omega_b = 0.021$. High redshift indicators constitute damped absorbers and Ly$\alpha$ forest clouds \citep{2003Weinberg-Lyalpha}, representing a value of $\Omega_b$ agreeing with the low redshift measurements. From BBN, the abundances of Deuterium and Helium also indicate a baryonic content of $\Omega_b \approx 0.021\pm 0.007$. These values are consistent with the current value found by \cite{2018PlanckCosmology} ($\Omega_b h^2 = 0.0224 \pm 0.0001$) and the values found in BOSS analysis in Chapter \ref{Chap:BOSS-Cosmo}.
 
 \subsubsection{Cold Dark Matter, $\Omega_{cdm}$:}
 Cold dark matter is inferred indirectly via several observations -- including the rotational curves of galaxies \citep{1970Rubin} and gravitational lensing measurements in galaxy clusters \citep{2006BulletCluster} -- indicating that the majority of matter in the Universe is electromagnetically non-interactive, non-relativistic, and non-luminous. This strange component interacts only gravitationally and, as a consequence, it is not coupled to photons. This causes dark matter to start clustering earlier than baryonic matter. As there is no coupling, this component also behaves as a pressureless fluid, $p_{cdm} = 0$, since very early in the Universe. The correlation function of galaxies \citep{Einsenstein2005}, the power spectra of galaxies \citep{Blake2007,BOSS}, and the CMB acourstic peaks \citep{PlanckCosmology2016,PlanckResults2015,2018PlanckCosmology} also need the additional existence of cold dark matter in order to explain the baryon acoustic oscillation (BAO) peak and other features of the 2-point statistics in the analysis (see Section \ref{Sec:Intro:Pk}). These measurements combined seem to suggest that $\Omega_{cdm} \approx 0.25$ .
@@ -323,7 +323,7 @@ As shown in Equation \eqref{Eq:Intro:K} and Figure \ref{fig:Intro:Geometry}, the
 
 \qquad In summary, the $\Lambda$CDM background Universe can simply be described by a FRW metric, a perfect fluid, and the cosmological constant. The standard cosmological model implies that our Universe is going through an accelerated expansion phase in the present time, i. e. it is currently dominated by the cosmological constant, and contains a flat geometry. Distances are measured related to the scale factor, $a(t)$, which, according to the FRW metric evolves with time. Finally, the baryonic content of the Universe is insufficient to describe several cosmological and astrophysical observations, leading to the necessity of dark matter to explain these phenomena. 
 
-\qquad There are still several pieces missing in the $\Lambda$CDM paradigm puzzle, the main ones being \textbf{the horizon problem} and the \textbf{flatness problem} \citep{schneider_2016}. The first one, the horizon problem, is related to the thermalisation of photons in the CMB. Since signals can't travel faster than the speed of light, CMB photons separated by more than one degree in the sky should have originated from completely uncorrelated parts of the very early Universe. These means that no information, like temperature, between such regions could have been exchanged. This, however, is not what is observed in the cosmic microwave background. Fluctuations in the CMB temperature are of the order of $\Delta T/T \sim 10^{-5}$. The second issue, the flatness problem (also known as the coincidence problem), is related to the extreme coincidence that our Universe has precisely the energy density needed for it to be flat, i. e. $\Omega = 1$. For this to happen, a very careful ``fine-tuning'' in the early Universe's parameters was necessary. Although theories like \textbf{inflation} claim to solve both these issues (see \citealt{2008InflationReview} for a review), no cosmological observations seem to confirm even the simplest of predictions from inflation \citep{2014Bicep2Planck}.
+\qquad There are still several pieces missing in the $\Lambda$CDM paradigm puzzle, the main ones being \textbf{the horizon problem} and the \textbf{flatness problem} \citep{1994Hu-Flatness-Horizon,2005Lake-PRL-Flatness,2012Helbig-flatness}. The first one, the horizon problem, is related to the thermalisation of photons in the CMB. Since signals can't travel faster than the speed of light, CMB photons separated by more than one degree in the sky should have originated from completely uncorrelated parts of the very early Universe. These means that no information, like temperature, between such regions could have been exchanged. This, however, is not what is observed in the cosmic microwave background. Fluctuations in the CMB temperature are of the order of $\Delta T/T \sim 10^{-5}$. The second issue, the flatness problem (also known as the coincidence problem), is related to the extreme coincidence that our Universe has precisely the energy density needed for it to be flat, i. e. $\Omega = 1$. For this to happen, a very careful ``fine-tuning'' in the early Universe's parameters was necessary. Although theories like \textbf{inflation} claim to solve both these issues (see \citealt{2008InflationReview} for a review), no cosmological observations seem to confirm even the simplest of predictions from inflation \citep{2014Bicep2Planck}.
 
 \vspace{10mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -531,7 +531,7 @@ The shape of both two-point statistics in Figure \ref{fig:Pk_Cf}, either in real
 %		        	NON-LINEAR THEORY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{The non-linear power spectra:}
-When dealing with smaller scales, at the order of clusters of galaxies, the linear theory approximation starts leading to imprecision in the power spectrum calculation. This is mostly due to the overdensity field's module tending to unity, which breaks down perturbation theory assumptions. Instead, different approaches are necessary. Computational calculation of non-linear overdensity amplitude fluctuations is usually performed with the use of N-body simulations with a wide range of cosmological parameters and fitting these to obtain power spectra predictions. The most used fitting is \texttt{HALOFIT} \citep{2003HaloFit} and its impact in the measured power spectra can be seen as an increase of power in smaller scales. Although a lot of collective effort has been put into perfecting these calculations over the years, as a rule of thump, the non-linear power spectrum is used to perform scale cuts in cosmological analyses\footnote{See Section \ref{Sec:CosmoAnal} in Chapter \ref{Chap:BOSS-Cosmo} for an example.} as even the latest advances on \texttt{HALOFIT} have around 5\% precision on scales up to $k\leq 1$ h/Mpc in $0\leq z \leq 10$ \citep{Takahashi2012,Bird2012}. 
+When dealing with smaller scales, at the order of clusters of galaxies, the linear theory approximation starts leading to imprecision in the power spectrum calculation. This is mostly due to the overdensity field's module tending to unity, which breaks down perturbation theory assumptions. Instead, different approaches are necessary. Computational calculation of non-linear overdensity amplitude fluctuations is usually performed with the use of N-body simulations with a wide range of cosmological parameters and fitting these to obtain power spectra predictions. The most used fitting is \texttt{HALOFIT} \citep{2003HaloFit,2012-Halofit,Bird2012} and its impact in the measured power spectra can be seen as an increase of power in smaller scales. Although a lot of collective effort has been put into perfecting these calculations over the years, as a rule of thump, the non-linear power spectrum is used to perform scale cuts in cosmological analyses\footnote{See Section \ref{Sec:CosmoAnal} in Chapter \ref{Chap:BOSS-Cosmo} for an example.} as even the latest advances on \texttt{HALOFIT} have around 5\% precision on scales up to $k\leq 1$ h/Mpc in $0\leq z \leq 10$ \citep{Takahashi2012,Bird2012}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %				WEAK LENSING
@@ -677,7 +677,7 @@ a multivariate Gaussian distribution where the $N\times N$ matrix of second deri
 \EQ{}{
 \mathcal{F}_{ij} = -(\bm{\nabla\nabla}\mathbb{L})_{ij} = \text{Cov}^{-1}_{ij}\, .
 }
-However, the Cram\'er-Rao theorem affirms that this equality only holds if the estimated best-fit value is truly at the maximum posterior for a multivariate Gaussian, otherwise $\text{Cov}_ij \geq \mathcal{F}^{-1}_{ij}$. Section \ref{Sec:CosmoBananas} gets into the cosmological parameter estimation problem in more details.
+However, the Cram\'er-Rao theorem affirms that this equality only holds if the estimated best-fit value is truly at the maximum posterior for a multivariate Gaussian, otherwise $\text{Cov}_ij \geq \mathcal{F}^{-1}_{ij}$. Section \ref{Sec:LikelihoodsPriors} gets into the cosmological parameter estimation problem in more details.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %				MC MONTE-CARLO
@@ -744,7 +744,7 @@ which becomes much simpler to evaluate in this algorithm as one does not need no
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %			            SURVEYS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{State-of-the-art Cosmological Surveys}\label{sec:intro:probes}
+\section{State-of-the-art Cosmological Probes}\label{sec:intro:probes}
 In this section I will outline some of the state-of-the-art past, current, and future surveys used in the following chapters -- either to extract cosmological information from, or to forecast future cosmological endeavours.
 
 \subsection{Planck Satellite}
@@ -818,6 +818,50 @@ where the distance, $d_L$, is defined as
 with $E(z)$ defined as in Equation \eqref{Eq:Intro:HubbleOmega2}.
 
 \qquad Throughout this work I make use of two Supernovae Type Ia (SNe Ia) light-curve analysis compilation. The first sample, used in Chapter \ref{Chap:BOSS}, is the Joint Light-curve Analysis (JLA) compilation \citep{JLAdata}; it contains spectroscopically confirmed SNe Ia from low redshift surveys, HST, SNLS \citep[all three presented in ]{2011Conley}, and SDSS-II \citep{2018Sako} -- with a total of 740 SNe Ia. The second sample, used in Chapter \ref{Chap:Neutrinos}, is the Pantheon compilation \citep{2018Pantheon}. It extends the JLA sample with the addition of spectroscopically confirmed SNe Ia from the Pan-STARRS Survey, with a total of 1048 SNe Ia with redshifts ranging from $0.01 < z < 2.3$. Details of the Hubble diagram for the Pantheon SNe Ia compilation and, consequently, from the JLA compilation can be found in Figure \ref{fig:Pantheon}.
+
+\subsection{Big Bang Nucleosynthesis}
+Big Bang Nucleosynthesis (BBN) is a very broad and extensive area of cosmology, here I present a very brief review of the relevant areas of this field for the present work. A complete review can be found in \cite{2007Steingman-BBN} and \cite{2016Particle-Review}.
+
+\qquad Around the first twenty minutes of the Universe, the production of most of what it is considered to be `light elements' took place. These are $^3$He,$^4$He, D, and $^7$Li \citep{2007Steingman-BBN}. Th abundances of such primordial elements provide us with information about the conditions of the Universe at very early stages, the very first minutes after what it is believed to be a `Big Bang'. At sufficiently high temperatures and densities for the primordial plasma, both protons and neutrons will fuse to form atomic nuclei. The main baryonic reactions at the very early Universe maintain chemical equilibrium, these are \citep{2016Particle-Review}:
+\begin{align}
+    p + e^- & \longleftrightarrow n + \nu \, , \label{Eq:proton1}\\
+    p + \bar{\nu} & \longleftrightarrow n + e^+ \, ,\label{Eq:proton2}\\
+    n & \rightarrow p + e^- + \bar{\nu}\, . \label{Eq:neutronDecay}
+\end{align}
+
+\qquad The reactions shown in Equations \eqref{Eq:proton1} and \eqref{Eq:proton2} are related to keeping the proton-to-neutron equilibrium ratio, while Equation \eqref{Eq:neutronDecay} is the free neutron decay with a time-scale of $\tau_n \approx 880$s. The ratio of the number of protons, $n_p$, to the number of neutrons, $n_n$, can be expressed via the Boltzmann factor in tems of the mass difference between the two particles, $\Delta m_{n,p} = m_n - m_p \approx 1.293$ MeV \citep{2015NeutronProtonRatio}:
+\begin{equation}
+    \frac{n_n}{n_p} = \exp\left[ - \frac{\Delta m_{n,p}}{k_b T}\right]\, .
+    \label{Eq:BoltzFactorNeutronProton}
+\end{equation}
+As soon as the neutrinos freeze-out, this ratio is kept almost constant at $n_n/n_p \approx 1/3$. After this period of decoupling, this equilibrium between protons and neutrons is broken and no longer described by the Boltzmann factor in Equation \eqref{Eq:BoltzFactorNeutronProton}, the changes in this ratio are then governed to the decay of free neutrons on the above-mentioned time-scale, $\tau_n$. For neutrons to `survive' throughout the history of the Universe, these need to be found in the nuclei of atoms \citep{2007Steingman-BBN}.
+
+\subsubsection{Deuterium and Helium abundances:}
+
+\begin{figure}
+\begin{center}
+%\includegraphics[width=\columnwidth]{Intro-FIGS/universeGeometry}
+\includegraphics[width=\textwidth]{Intro-FIGS/heli2015.pdf}
+\caption[BBN predictions for primordial abundances. Image Credit: \cite{2017-Abundances-Fig}]{BBN predictions for primordial abundances for $^4$He (mass fraction), D, $^3$He, and $^7$Li as a function of the baryon over photon ration, $\eta$, or the baryon density of the Universe, $\Omega_b h^2$. The vertical line comes from the Planck Collaboration measurements for $\Omega_b h^2$ presented in \cite{planck2013}; while the horizontal strips are from primordial abundances presented in \cite{2015-Abundances-Data}. Image Credit: \cite{2017-Abundances-Fig}.}
+\label{fig:BBN}
+\end{center}
+\end{figure}
+
+Deuterium is one of the simplest nucleus formed in the very early universe -- composed by a single proton and a single neutron, they are formed via the following reaction: $p + n \rightarrow D + \gamma$. As strong-force interactions govern the formation of deuterium, this is a very energy efficient reaction. Although, at the time of decoupling, since photons are much more abundant than baryons and the energy of some photons was much higher than the baryon's, $E_{\gamma} \geq E_{b}$, deuterium was destroyed by a mechanism called `photo-dissociation' \citep{2000Deuterium-Tyler}. Only when the temperature drops to around $T_D \approx 8\times 10^8$K that the deuterium formation rate wins over the dissociation rate, leading to a neutron-to-proton ratio of $n_n/n_p \approx 1/7$. Right after this period, all free neutrons end up firstly bound in deuterium atoms -- mostly due to the strong-force nature of the interactions.
+
+\qquad With a higher binding energy than that of deuterium, $^4$He then starts forming as soon as the D density is sufficiently high. Having a higher binding energy ensures that helium-4 cannot be destroyed by photons via photo-dissociation. This process transforms almost all D into $^4$He, with the exception of a small fraction of deuterium. Since at this moment almost all neutrons are present in atoms of $^4$He, the number density of such nuclei can be estimated by taking into account the number of free protons after helium is formed: $n_{H} = n_p - n_n$. 
+
+\qquad The `mass fraction Y` of $^4$He of the total baryon density is defined as \citep{2000-BBN-Review,RevModPhys-BBN-Review2}:
+\begin{align}
+    Y & = \frac{4n_{He}}{4n_{He}+n_H} \\
+      & = \frac{2n_n}{n_p + n_n} \approx 0.25\, ,
+\end{align}
+given that the ratio $n_n/n_p \approx 1/7$ at the time deuterium formation ratio has enough temperature to win over photo-dissociation to form helium-4. This result means that at least a quarter of the Universe's baryonic content should be in the form of helium-4 and it is with perfect agreement with observations \citep{2015-Abundances-Data,2017-Abundances-Fig}.
+
+\qquad From Figure \ref{fig:BBN}, one can see that there's a strong dependency between the $^4$He and D abundances and the baryon content of the Universe, $\Omega_b$. With a larger baryon density, two main consequences arise for these two abundances. The first one is that, with a larger baryon-to-photon ratio, deuterium would form much earlier, with fewer neutrons decaying leading to a higher value for Y. The second consequence, in a similar reasoning, would be that deuterium would convert into helium-4 much more efficiently, leading to a much lower fraction of D.
+
+\qquad Lastly, neutrinos play a major role in BBN given the epoch of the 
+Universe one considers. At such early times, neutrinos act as relativistic which influence BBN in various ways. As an example, electron neutrinos influence and control the fraction of free neutrons available, limiting the formation of primordial $^4$He. The number of active neutrinos, $N_{\nu}$, also change considerably predictions for BBN abundances. If $N_{\nu} > 3$, fewer neutrons would decay, resulting in a much higher helium-4 abundance \citep{2007Steingman-BBN}.
 
 
 % \begin{itemize}

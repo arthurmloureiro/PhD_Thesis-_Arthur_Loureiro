@@ -426,7 +426,7 @@ where $\nabla_{ij}$ represents the derivative with respect with the $ij$-th comp
 \end{align}
 With all the elements of the Hessian matrix established, one can proceed now to use the sampler as described previously. 
 
-\qquad It is important to note that such matrix can easily achieve unpractical dimensions as it scales with $\sim 3\ell_{max}^2$. Therefore, the standard approach, taken by \cite{SreeThesis}, was to perform the analysis using the Hessian's diagonal as a proxy for the step-size. In this case, the off-diagonal term in Equation \ref{Eq:BPL:HessianOffDiag} are set to be zero.As an approximation, for cases where $\mathbf{N}^{-1}$ can be considered diagonal, one can simply calculate the second term of Equation \ref{Eq:BPL:HessianAlms} via Monte-Carlo integration. Given a random set of variables on the sphere, $\bm{\eta}$, such that $\langle \bm{\eta} \bm{\eta}^T \rangle = \mathbf{N}^{-1}$; where the quantity inside the expected value brackets can be sampled from a normal distribution. As a rule of thumb, the ideal number of samples to be taken in this process should be greater than the number of dimensions in the full posterior distribution, i. e. $N_s \geq \ell_{\tex{max}}^2 + 3\ell_{\tex{max}} - \ell_{\tex{min}}^2 - \ell_{\tex{min}} + 2$. 
+\qquad It is important to note that such matrix can easily achieve unpractical dimensions as it scales with $\sim 3\ell_{max}^2$. Therefore, the standard approach, taken by \cite{SreeThesis}, was to perform the analysis using the Hessian's diagonal as a proxy for the step-size. In this case, the off-diagonal term in Equation \ref{Eq:BPL:HessianOffDiag} are set to be zero.As an approximation, for cases where $\mathbf{N}^{-1}$ can be considered diagonal, one can simply calculate the second term of Equation \ref{Eq:BPL:HessianAlms} via Monte-Carlo integration. Given a random set of variables on the sphere, $\bm{\eta}$, such that $\langle \bm{\eta} \bm{\eta}^T \rangle = \mathbf{N}^{-1}$; where the quantity inside the expected value brackets can be sampled from a normal distribution. As a rule of thumb, the ideal number of samples to be taken in this process should be greater than the number of dimensions in the full posterior distribution, i. e. $N_s \geq \ell_{\text{max}}^2 + 3\ell_{\text{max}} - \ell_{\text{min}}^2 - \ell_{\text{min}} + 2$. 
 
 \qquad In this case, the second term of Equation \ref{Eq:BPL:HessianAlms} can be expressed as,
 \begin{align}
@@ -714,9 +714,9 @@ In this last investigative Section, I will study the performance of the Bayesian
 \label{fig:BPL:Euclid-Ells}
 \end{figure}
 
-\qquad Next, the final log-normal simulation to be studied in this section has a signal-to-noise similar to the expected from Euclid's galaxy clustering measurements at the given redshift range, e. g. $\bar{n}^{-1}\approx 2.86\times 10^{-8}$ steradians/galaxies \citep{2011EuclidRedPaper}. The simulated overdensity map and the galaxy number counts map used as a proxy for inverse noise are shown in Figures \ref{fig:BPL:LN-HighSN-dens} and \ref{fig:BPL:LN-HighSN-noise}, respectively. Note that the values in the inverse-noise map contains many more galaxies than the previous case. For this case, shown in Figure \ref{fig:BPL:LN-HighSN-Cls}, one can see that the recovered angular power spectrum using the Bayesian estimator looks closer to the fiducial $C_{\ell}$s. 
+\qquad Next, the final log-normal simulation to be studied in this section has a signal-to-noise similar to the expected from Euclid's galaxy clustering measurements at the given redshift range, e. g. $\bar{n}^{-1}\approx 2.86\times 10^{-8}$ steradians/galaxies \citep{2011EuclidRedPaper}. The simulated overdensity map and the galaxy number counts map used as a proxy for inverse noise are shown in Figures \ref{fig:BPL:LN-HighSN-dens} and \ref{fig:BPL:LN-HighSN-noise}, respectively. Note that the values in the inverse-noise map contains many more galaxies than the previous case. For this case, shown in Figure \ref{fig:BPL:LN-HighSN-Cls}, one can see that the recovered angular power spectrum using the Bayesian estimator looks closer to the fiducial $C_{\ell}$s. Figure \ref{fig:BPL:LN-HighSN-LowEll} shows a zoom into the low-$\ell$ region, while Figure \ref{fig:BPL:Euclid-Ells-HighSN-LowEll} shows the marginalised 1D posteriors for the first 5 modes. Note that, for high signal-to-noise case such as Euclid, the low-$\ell$ information is well recovered, demonstrating the power of taking such approach for these cases.
 
-\qquad Note how, given the higher signal-to-noise in this simulation, even with values for the Hanson test above the tolerance levels (see Figure \ref{fig:BPL:LN-HighSN-Hanson} and Section \ref{Sec:BPL:Convergence}), satisfactory convergence in the chains was achieved with impressive accuracy and precision using 435,000 samples. The marginalised $C_{\ell}$ for each individual $\ell$-mode, presented in Figure \ref{fig:BPL:Euclid-Ells-HighSN} for this case, demonstrate how the posterior distribution was properly sampled in this case. For the larger scales, the distribution of sampled $C_{\ell}$s is very skewed and, as expected, as one looks at smaller scales, the $\chi$-squared distributed $C_{\ell}$s tend to a Gaussian distribution. This has great implications as it demonstrates that the method recovers non-Gaussian error-bars for the low-$\ell$ modes, being a great advantage over method such as Pseudo-$C_{\ell}$ or other quadratic estimators \citep{Boris2013}.
+\qquad Note how, given the higher signal-to-noise in this simulation, even with values for the Hanson test above the tolerance levels (see Figure \ref{fig:BPL:LN-HighSN-Hanson} and Section \ref{Sec:BPL:Convergence}), satisfactory convergence in the chains was achieved with impressive accuracy and precision using 435,000 samples. The marginalised $C_{\ell}$ for each individual $\ell$-mode, presented in Figure \ref{fig:BPL:Euclid-Ells-HighSN} for this case, demonstrate how the posterior distribution was properly sampled in this case. For the larger scales, the distribution of sampled $C_{\ell}$s is very skewed and, as expected, as one looks at smaller scales, the $\chi$-squared distributed $C_{\ell}$s tend to a Gaussian distribution. This has great implications as it demonstrates that the method recovers non-Gaussian error-bars for the low-$\ell$ modes, being a great advantage over method such as Pseudo-$C_{\ell}$ or other quadratic estimators \citep{Efstat2004,Boris2013}.
 
 \begin{figure}
 \begin{subfigure}[b]{.5\textwidth}
@@ -745,8 +745,47 @@ In this last investigative Section, I will study the performance of the Bayesian
 \label{fig:BPL:LogNormalFSAnalysisHighSN}
 \end{figure}
 
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.60]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_HPDCls-lowEll.pdf}
+\caption[A zoom in the low-$\ell$ region of the results obtained by the Bayesian-$C_{\ell}$ estimator in an Euclid-like case for a redshift tomographic bin between $0.5 \leq z < 0.6$.]{A zoom in the low-$\ell$ region of the results obtained by the Bayesian-$C_{\ell}$ estimator in an Euclid-like case (presented fully in Figure \ref{fig:BPL:LN-HighSN-Cls} for a redshift tomographic bin between $0.5 \leq z < 0.6$. The red line is the fiducial $C_{\ell}$ used to generate the simulations, the blue line is a Pseudo-$C_{\ell}$ estimator, the black line and shaded region are the best-fit values and 68\% CI, respectively, obtained with the Bayesian estimator.}
+\label{fig:BPL:LN-HighSN-LowEll}
+\end{center}
+\end{figure}
 
-\qquad Results from Figures \ref{fig:BPL:LogNormalFSAnalysisHighSN} and \ref{fig:BPL:Euclid-Ells-HighSN} demonstrate that, for an Euclid-like survey, in a single shell case, the Bayesian estimator presented in this chapter can properly recover the underlying angular power spectrum of galaxies. The performance of the method was enhanced by using the galaxy number counts map as a proxy for the inverse-noise map; without it, the algorithm can get lost in local maxima inside the prior. Tests will be perform in the future for cases with more than one shell and cross-correlations between shells.
+\qquad Results from Figures \ref{fig:BPL:LogNormalFSAnalysisHighSN}-\ref{fig:BPL:Euclid-Ells-HighSN} demonstrate that, for an Euclid-like survey, in a single shell case, the Bayesian estimator presented in this chapter can properly recover the underlying angular power spectrum of galaxies. The performance of the method was enhanced by using the galaxy number counts map as a proxy for the inverse-noise map; without it, the algorithm can get lost in local maxima inside the prior. Tests will be perform in the future for cases with more than one shell and cross-correlations between shells.
+
+\begin{figure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_HISTOGRAM-ell-02.pdf}
+  \caption{$\ell = 2$}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_HISTOGRAM-ell-03.pdf}
+  \caption{$\ell = 3$}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_HISTOGRAM-ell-04.pdf}
+  \caption{$\ell = 4$}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_HISTOGRAM-ell-05.pdf}
+  \caption{$\ell = 5$}
+\end{subfigure}
+\begin{center}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{BPL-FIGS/Euclid-LN-PNoi-N32-HDens_HISTOGRAM-ell-06.pdf}
+  \caption{$\ell = 6$}
+\end{subfigure}
+\end{center}
+\caption[Examples of marginalised 1D posteriors for individual low-$\ell$ modes for the case of a Euclid-like mask and signal-to-noise.]{Marginalised 1D posteriors for individual low-$\ell$ modes for the case of a Euclid-like mask and signal-to-noise, $\bar{n}^{-1}\approx 2.86\times 10^{-8}$ steradians/galaxies. Note that, for a high signal-to-noise case, the method is capable to recover the correct posterior distribution for low-$\ell$ modes.}
+\label{fig:BPL:Euclid-Ells-HighSN-LowEll}
+\end{figure}
 
 
 \begin{figure}
