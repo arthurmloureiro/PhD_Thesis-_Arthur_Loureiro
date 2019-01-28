@@ -3,9 +3,7 @@
 \chapter[An investigation of Bayesian-$C_{\ell}$ Estimators applied to Galaxy Clustering]{An investigation of Bayesian Angular Power Spectra Estimators applied to Galaxy Clustering}\label{Chap:BPL}
 %\chapter{}\label{sec:concepts}
 
-\cleanchapterquote{It's f*cking science!\\
-Just ask Albert Einstein, he invented space
-}{Danny Sexbang}{(Dinosaur Laser Fight, Ninja Sex Party)}
+\cleanchapterquote{Normality is a paved road: It's comfortable to walk, but no flowers grow on it.}{Vincent van Gogh}
 
 \vspace*{\fill}
 
@@ -716,7 +714,9 @@ In this last investigative Section, I will study the performance of the Bayesian
 
 \qquad Next, the final log-normal simulation to be studied in this section has a signal-to-noise similar to the expected from Euclid's galaxy clustering measurements at the given redshift range, e. g. $\bar{n}^{-1}\approx 2.86\times 10^{-8}$ steradians/galaxies \citep{2011EuclidRedPaper}. The simulated overdensity map and the galaxy number counts map used as a proxy for inverse noise are shown in Figures \ref{fig:BPL:LN-HighSN-dens} and \ref{fig:BPL:LN-HighSN-noise}, respectively. Note that the values in the inverse-noise map contains many more galaxies than the previous case. For this case, shown in Figure \ref{fig:BPL:LN-HighSN-Cls}, one can see that the recovered angular power spectrum using the Bayesian estimator looks closer to the fiducial $C_{\ell}$s. Figure \ref{fig:BPL:LN-HighSN-LowEll} shows a zoom into the low-$\ell$ region, while Figure \ref{fig:BPL:Euclid-Ells-HighSN-LowEll} shows the marginalised 1D posteriors for the first 5 modes. Note that, for high signal-to-noise case such as Euclid, the low-$\ell$ information is well recovered, demonstrating the power of taking such approach for these cases.
 
-\qquad Note how, given the higher signal-to-noise in this simulation, even with values for the Hanson test above the tolerance levels (see Figure \ref{fig:BPL:LN-HighSN-Hanson} and Section \ref{Sec:BPL:Convergence}), satisfactory convergence in the chains was achieved with impressive accuracy and precision using 435,000 samples. The marginalised $C_{\ell}$ for each individual $\ell$-mode, presented in Figure \ref{fig:BPL:Euclid-Ells-HighSN} for this case, demonstrate how the posterior distribution was properly sampled in this case. For the larger scales, the distribution of sampled $C_{\ell}$s is very skewed and, as expected, as one looks at smaller scales, the $\chi$-squared distributed $C_{\ell}$s tend to a Gaussian distribution. This has great implications as it demonstrates that the method recovers non-Gaussian error-bars for the low-$\ell$ modes, being a great advantage over method such as Pseudo-$C_{\ell}$ or other quadratic estimators \citep{Efstat2004,Boris2013}.
+\qquad Given the higher signal-to-noise in this simulation, even with values for the Hanson test above the tolerance levels (see Figure \ref{fig:BPL:LN-HighSN-Hanson} and Section \ref{Sec:BPL:Convergence}), satisfactory convergence in the chains was achieved with impressive accuracy and precision using 435,000 samples. The marginalised $C_{\ell}$ for each individual $\ell$-mode, presented in Figure \ref{fig:BPL:Euclid-Ells-HighSN} for this case, demonstrate how the posterior distribution was properly sampled in this case. For the larger scales, the distribution of sampled $C_{\ell}$s is very skewed and, as expected, as one looks at smaller scales, the $\chi$-squared distributed $C_{\ell}$s tend to a Gaussian distribution. This has great implications as it demonstrates that the method recovers non-Gaussian error-bars for the low-$\ell$ modes, being a great advantage over method such as Pseudo-$C_{\ell}$ or other quadratic estimators \citep{Efstat2004,Boris2013}. 
+
+\qquad Note that, given the non-Gaussian nature of the sampled posterior distribution, a $\chi^2_{red}$ test for `goodness of fit' becomes impractical. When comparing the sampled $C_{\ell}$'s 68\% CI to the standard deviation of samples, they can differ as much as two times. As a $\chi^2_{red}$ test assumes gaussianity, it does not apply for the cases considered in this Chapter.
 
 \begin{figure}
 \begin{subfigure}[b]{.5\textwidth}

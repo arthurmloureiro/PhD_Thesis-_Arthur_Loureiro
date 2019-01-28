@@ -6,7 +6,7 @@
 \cleanchapterquote{La utopía está en el horizonte. Camino dos pasos, ella se aleja dos pasos. Camino diez pasos y el horizonte se corre diez pasos más allá. Por mucho que camine nunca la alcanzaré. ¿Entonces para qué sirve la utopía? Para eso, sirve para caminar.}{Eduardo Galeano}{}
 
 %\RED{Introduction, motivation, and problem statement text here. Go crazy!}
-\FIL{This is a Fil comment}
+%\FIL{This is a Fil comment}
 Cosmology is one of the most impressive and advanced human intellectual ventures. Cosmological ideas were shared and discussed between humans as long as we have recorded history \citep{preBabylonianCosmology,BabylonianCosmology1}. Ideas about the cosmos initially were intertwined with religious and spiritual concepts through cultural cosmogonic %\footnote{I reefer here to \textit{Cosmogony} in a more broad and general sense, as any concept of the origin of the Universe, beyond the scientific concept.} 
 concepts. Little by little, ancient Greek \citep{GreekCosmology}, Chinese \citep{ChineseCosmology}, and Arabic \citep{ArabicCosmology} astronomers and philosophers begun wondering about the cosmos from a more logical point of view, developing concepts which started separating cosmology from religion. However, cosmology as we know was still far away from being granted a scientific status. It was not until the XVII$^{th}$ century with Newton's law of gravitation, following Kepler's remarks on planetary motion, that the cornerstone of cosmology as an empirical science was initially set \citep{Gleiser}.
 
@@ -209,7 +209,7 @@ and
 }
 which implies that the acceleration is independent of the geometry, $K$. However, one can re-write Equation \eqref{Eq:Intro:Fried1} to obtain an expression for $K$ in terms of the time dependent variables $a(t)$, $\rho (t)$, and $p(t)$ \citep{padmanabhan_1999}. At the present time, $a(t=t_0) = 1$, 
 \EQ{Intro:K}{
-K & = \frac{8\pi G}{3} \rho (t_0) - \underbrace{\dot{a}^2(t_0)}_{= H_0^2} + \frac{\Lambda}{3} \\
+K & = \frac{8\pi G}{3} \rho (t_0) - \dot{a}^2(t_0) + \frac{\Lambda}{3} \\
 & \equiv  H_0^2(\Omega(t_0) - 1)\, ,
 }
 here, $H_0$ is the Hubble constant measured today and $\Omega \equiv \rho/\rho_c$ is again the dimensionless total density of the Universe. The critical density, $\rho_c$, is defined to be the precise energy density the Universe needs so its geometry is flat, i. e. $K=0$; it can be defined from Equation \eqref{Eq:Intro:K} as $\rho_c \equiv 3H_0^2/8\pi G = 8.098 \times 10^{-11} \text{eV}^{4}$. Figure \ref{fig:Intro:Geometry} shows the relationship between the total density of the Universe and its geometry.
@@ -511,7 +511,7 @@ D(a) = \frac{5\Omega_m}{2}\frac{H(a)}{H_0}\int_0^a \left[ \Omega_m/a' + \Omega_{
 where a convention of $D(z=0)=1$ was used. The impact of $D(z)$ in the two-point statistics can be see in Figure \ref{fig:Pk_Cf} for a fiducial $\Lambda$CDM model.
 %\subsubsection{Galaxy bias and non-linear scales:}
 
-\qquad Dark matter, however, does not interact electromagnetically with baryonic matter which complicates any attempts to directly measure fluctuations in the underlying matter density field. Although no direct dark matter observations were made so far \citep{2017DarkMatterExpReview}, matter tends to cluster due to gravity, i. e. both dark and baryonic matter interact gravitationally. This causes baryonic matter, in the form of galaxies, clusters of galaxies, intergalactic gas, and more to act as a biased tracer of the underlying matter overdensity field, $\delta_g = b\delta$. This bias can be represented as a function of several different aspects of galaxies: luminosity \citep{2004PVP}, scale \citep{2008ScaleBias}, galaxy type \citep{2016AbramoSeccoLoureiro}, and redshift \citep{Peacock,dods}. The underlying physics in this process is that more massive halos will form more massive galaxies, which will have different star formation histories, affecting mainly these before-mentioned aspects. The work presented in the subsequent sections and chapters, considers bias simply to be a function of redshift as a first order approximation. Therefore, its impact on the power spectrum of galaxy distributions, $P_g(k)$, is 
+\qquad Dark matter, however, does not interact electromagnetically with baryonic matter which complicates any attempts to directly measure fluctuations in the underlying matter density field. Although no direct dark matter observations were made so far \citep{2017DarkMatterExpReview}, matter tends to cluster due to gravity, i. e. both dark and baryonic matter interact gravitationally. This causes baryonic matter, in the form of galaxies, clusters of galaxies, intergalactic gas, and more to act as a biased tracer of the underlying matter overdensity field, $\delta_g = b\delta$ \citep{2000-BensonBias,1999Ofer-Bias}. This bias can be represented as a function of several different aspects of galaxies: luminosity \citep{2000-BensonBias,2004PVP,2013Baugh-LumBias}, scale \citep{1999Ofer-Bias,2008ScaleBias,2008Hamann-ScaleBias,2018Simon-ScaleBias}, galaxy type \citep{2008Sanchez-Bias,2016AbramoSeccoLoureiro}, and redshift \citep{1994FKP,1998Heavens-Verde,2000-BensonBias}. The underlying physics in this process is that more massive halos will form more massive galaxies, which will have different star formation histories, affecting mainly these before-mentioned aspects. The work presented in the subsequent sections and chapters, considers bias simply to be a function of redshift as a first order approximation. Therefore, its impact on the power spectrum of galaxy distributions, $P_g(k)$, is 
 \EQ{}{
 P_g(k,k) = b^2(z)P(k,z) \, .
 }
@@ -605,7 +605,7 @@ This expression is commonly known as `the product rule'.
 \EQ{Intro:Bayes}{
 \Pr(A|B,M) = \frac{\mathcal{L}(B|A, M)\Pi(A|M)}{\mathcal{Z}(B|M)}\, ,
 }
-where $\mathcal{L}(B|A, M)$ is the likelihood, the probability of the acquiring the data given hypothesis A and model M; $\Pi(A|M)$ is the prior distribution, which is the probability of hypothesis A given prior knowledge on the model M; finally, $\mathcal{Z}(B|M)$, the normalisation factor, is called evidence and it is the probability of the data given the model only. The combination of these probability distribution functions (p.d.f.) leads to the posterior distribution, the plausibility of the hypothesis given the data and the underlying assumptions about the model. 
+where $\mathcal{L}(B|A, M)$ is the likelihood, the probability of the acquiring the data, B, given hypothesis A and model M; $\Pi(A|M)$ is the prior distribution, which is the probability of hypothesis A given prior knowledge on the model M; finally, $\mathcal{Z}(B|M)$, the normalisation factor, is called evidence and it is the probability of the data given the model only. The combination of these probability distribution functions (p.d.f.) leads to the posterior distribution, the plausibility of the hypothesis given the data and the underlying assumptions about the model. 
 
 \qquad In other words, Bayes' theorem relates the probability over the veracity of a certain hypothesis given the data, to the probability that the data could have been measured in case where the hypothesis is true. This is the information encompassed into the likelihood function. However, it is the prior which differentiate Baysian statistics from the usual frequentist approach: it allows for previous knowledge to be incorporated into the assessment of the hypothesis's veracity. The prior distribution exhibit how much is known or unknown about the hypothesis' truth assertion before any data is analysed. 
 
@@ -851,7 +851,7 @@ Deuterium is one of the simplest nucleus formed in the very early universe -- co
 
 \qquad With a higher binding energy than that of deuterium, $^4$He then starts forming as soon as the D density is sufficiently high. Having a higher binding energy ensures that helium-4 cannot be destroyed by photons via photo-dissociation. This process transforms almost all D into $^4$He, with the exception of a small fraction of deuterium. Since at this moment almost all neutrons are present in atoms of $^4$He, the number density of such nuclei can be estimated by taking into account the number of free protons after helium is formed: $n_{H} = n_p - n_n$. 
 
-\qquad The `mass fraction Y` of $^4$He of the total baryon density is defined as \citep{2000-BBN-Review,RevModPhys-BBN-Review2}:
+\qquad The `mass fraction Y` of $^4$He of the total baryon density is defined as \citep{2000-BBN-Review,2016R-BBN-Review}:
 \begin{align}
     Y & = \frac{4n_{He}}{4n_{He}+n_H} \\
       & = \frac{2n_n}{n_p + n_n} \approx 0.25\, ,
