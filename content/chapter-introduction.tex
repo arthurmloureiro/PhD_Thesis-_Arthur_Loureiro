@@ -193,23 +193,28 @@ T^{\mu}_{\ \ \nu} = \left( \begin{array}{cccc}
 }
 
 \qquad Inserting the energy-momentum tensor above with the FRW metric into Einstein's field equations, one finds the dynamical equations governing the behaviour of the scale factor. First, one obtains the non-trivial components of the Einstein tensor as
+
 \EQ{Intro:EFE_LCDM}{
 G_{00} & = \frac{3}{a^2}\left( \dot{a}^2 + K \right) \, , \\
 G_{ij} & = \frac{1}{a^2}\left( 2a\ddot{a} + \dot{a}^2 + K \right)\delta_{ij},
 }
 where $\delta_{ij}$ is the Kronecker delta. Next, including the energy-momentum tensor from Equation \eqref{Eq:Intro:Tmunu2} \citep{1922Friedmann,1924FriedmannCurvature}:
+
 \EQ{Intro:Fried1}{
 \left(\frac{\dot{a}}{a}\right)^2 & = \frac{8\pi G}{3}\rho - \frac{K}{a^2} + \frac{\Lambda}{3}\, ,}
 and
+
 \EQ{Intro:Fried2}{
 \frac{\ddot{a}}{a}&  = -\left\lbrace 4\pi Gp + \frac{1}{2}\left[\left(\frac{\dot{a}}{a}\right)^2 + \frac{K}{a^2}\right] \right\rbrace + \frac{\Lambda}{3}\, .
 }
 
 \qquad These are known as the Friendmann Equations \citep{1922Friedmann,1924FriedmannCurvature}, combining them leads to
+
 \EQ{}{
 \frac{\ddot{a}}{\dot{a}} = -\frac{4\pi G}{3}(\rho + 3p)\, ,
 }
 which implies that the acceleration is independent of the geometry, $K$. However, one can re-write Equation \eqref{Eq:Intro:Fried1} to obtain an expression for $K$ in terms of the time dependent variables $a(t)$, $\rho (t)$, and $p(t)$ \citep{padmanabhan_1999}. At the present time, $a(t=t_0) = 1$ \citep{1924FriedmannCurvature}, 
+
 \EQ{Intro:K}{
 K & = \frac{8\pi G}{3} \rho (t_0) - \dot{a}^2(t_0) + \frac{\Lambda}{3} \\
 & \equiv  H_0^2(\Omega(t_0) - 1)\, ,
@@ -222,16 +227,19 @@ here, $H_0$ is the Hubble constant measured today and $\Omega \equiv \rho/\rho_c
 E^2(t) \equiv \frac{H^2(t)}{H_0^2} = \left[ \Omega_r a^{-4}(t) + \Omega_m a^{-3}(t) + \Omega_K a^{-2}(t) +  \Omega_{\Lambda} \right], 
 }
 where the $\Omega_i$ are the dimensionless density of each component $i$ considered
+
 \EQ{}{
 \Omega_r \equiv \frac{\rho_r(t_0)}{\rho_c} \, ; \quad \Omega_m \equiv \frac{\rho_m(t_0)}{\rho_c} \, ; \quad \Omega_{\Lambda} \equiv \frac{\rho_{\Lambda}}{\rho_c} \, ; \\ 
 \Omega_K \equiv 1 - (\Omega_r + \Omega_m + \Omega_{\Lambda}) = 1 - \Omega \, .
 }
 Promptly, Equation \eqref{Eq:Intro:HubbleOmega1} can be written in terms of the equation-of-state, $w_i$, for each of the components
+
 \EQ{Intro:HubbleOmega2}{
 E^2(t) & = \sum_i \Omega_i a^{-3(1+w_i)} \\
 	& = \sum_i \Omega_i(1+z)^{3(1+w_i)}
 }
 with
+
 \EQ{Intro:EoS}{
 w_i = 
 \begin{cases}
@@ -243,6 +251,7 @@ w_i =
 }
 
 \qquad Now, the comoving distance at a given redshift can simply be expressed as
+
 \EQ{Intro:Comoving}{
 \chi (z) = \frac{1}{H_0}\int_0^z \frac{dz'}{E(z')}
 }
@@ -251,13 +260,14 @@ which means that distance measurements in comoving coordinates depend on the ene
 \qquad A brief description of each of the components of the Universe follows in the next subsections \citep{dods,schneider_2016}.
 
 \subsubsection{Radiation, $\Omega_r$ :}
- Cosmic microwave background experiments such as COBE \citep{COBE}, WMAP \citep{WMAP_MapsResults,WMAP_Cosmology}, and the Planck Satellite \citep{2018PlanckCosmology} all measure the temperature of the CMB photons. The CMB photon temperature has been measured with incredible precision already with the FIRAS instrument (on-board of the COBE satellite) to be a perfect fit of a black-body radiation with $T_{cmb} = 2.725\pm 0.002$K \citep{1999FIRAS}. The energy density of photons can be estimated from statistical mechanics using the Bose-Einstein distribution function \citep{dods}
+ Cosmic microwave background experiments such as COBE \citep{COBE}, WMAP \citep{WMAP_MapsResults,WMAP_Cosmology}, and the Planck Satellite \citep{2018PlanckCosmology} all measure the temperature of the CMB photons. The CMB photon temperature has been measured with incredible precision already with the FIRAS instrument (on-board of the COBE satellite) to be a perfect fit of a black-body radiation with $T_{cmb} = 2.725\pm 0.002$K \citep{1999FIRAS}. The energy density of photons can be estimated from statistical mechanics using the Bose-Einstein distribution function \citep[][p. 40]{dods}
+ 
  \EQ{Intro:CMB:Temp}{
  \rho_{\gamma} & = 2\int \frac{d^3p}{(2\pi)^3} p \left( e^{p/T_{cmb} -1 }\right)^{-1} \\
  	& = \frac{\pi^2}{15}T_{cmb}^4 \\
     & = \frac{\pi^2}{15}\left( \frac{2.725 K}{a} \right)^4
  }
-and the equation-of-state for radiation is consistent with the pressure exerted by this component, $p_r = \frac{1}{3}\rho_r$. In terms of the dimensionless radiation density, $\Omega_r \approx 5 \times 10^{-5}$ \citep{schneider_2016}.
+and the equation-of-state for radiation is consistent with the pressure exerted by this component, $p_r = \frac{1}{3}\rho_r$. In terms of the dimensionless radiation density, $\Omega_r \approx 5 \times 10^{-5}$ \citep[][p. 182]{schneider_2016}.
 
 \qquad Part of the radiation content is also composed of neutrinos, even thought the mass of these particles are small, it is known that it is non-zero \citep{Kamiokande1998}. Neutrinos, therefore, act relativistically at decoupling causing them to behave as radiation in the early Universe.
 
@@ -285,10 +295,24 @@ Cold dark matter is inferred indirectly via several observations -- including th
 \qquad Empirical evidence for cold dark matter comes only through indirect gravitational observations, no direct detection were made so far \citep{2017DarkMatterExpReview}. In light of these null detection, there are some attempts to explain it with alternative theories. In the early years, neutrinos were a good candidate for dark matter as they interact very weakly via the electromagnetic field. Although, this hypothesis was later discarded as they later proved to behave more as a hot dark matter -- washing away structure instead of forming it earlier as CDM. Some other alternative theories came from questioning the nature of GR, like Modified Newtonian Dynamics (MOND, \citealt{1983MOND}). MOND tries to explain the observational effects attributed to cold dark matter by introducing an acceleration scale in which Newtonian dynamics is modified. Even though it was created in order to solve the observations explained by dark matter, there are several issues with this theory where it fails to explain other dark matter observations \citep{2011MondSucks}. One of them, claimed as `a direct empirical proof of the existence of dark matter' by \cite{2006BulletCluster} can only be explained by MOND if the sum of mass of neutrinos were $\sum m_{\nu} \approx 2.0$ eV \citep{2007ApJ...654L..13A}. Such value is already excluded by galaxy clustering measurements -- \citealt{Thomas2010Neutr,2014Gonzalez-GarciaNeutrino} as well as measurements shown in Chapters \ref{Chap:BOSS-Cosmo} and \ref{Chap:Neutrinos} -- which makes MOND very unlikely to be true.  
 
 \subsubsection{Cosmological Constant or Dark Energy, $\Omega_{\Lambda}$ or $\Omega_{de}$:}
-Observations of Supernovae type Ia luminosity distance--redshift relation strongly suggest that something is causing the Universe to go through an accelerated expansion phase \citep{1998Riess,1999Perlmutter,2018LambdaCentury}. The furthest away galaxies are, the faster they distance themselves from each other. This effect is attributed to a mysterious component called dark energy which seems to compose around $70\%$ of the Universe \citep{2018PlanckCosmology}. This component seems to exert a negative pressure, $p_{de} \leq - \frac{1}{3}\rho_{de}$; it can be parametrised in terms of the equation-of-state parameter, $w_0$ -- where, if $w_0 = -1$, dark energy is simply the cosmological constant, $\Lambda$, as $p_{\Lambda}= -\frac{1}{3}\rho_{\Lambda}$. Any deviation from $w_0 = -1$ would mean new physics, beyond the standard $\Lambda$CDM model. Current observations from the Dark Energy Survey combined with BAO measurements from BOSS \citep{2016BOSSCosmology}, and CMB from Planck \citep{PlanckCosmology2016} seem to suggest that $w_0 = -1.00^{+0.04}_{-0.05}$. Measurements shown in Chapter \ref{Chap:BOSS-Cosmo} are consistent with the DES findings; these seem to suggest that dark energy is simply the cosmological constant, $\Lambda$. A lot of questions are still unanswered in Cosmology as the nature of $\Lambda$ is still unknown -- if one does not accept it as a fundamental property of spacetime.
+Observations of Supernovae type Ia luminosity distance--redshift relation strongly suggest that something is causing the Universe to go through an accelerated expansion phase \citep{1998Riess,1999Perlmutter,2018LambdaCentury}. The furthest away galaxies are, the faster they distance themselves from each other. This effect is attributed to a mysterious component called dark energy which seems to compose around $70\%$ of the Universe \citep{2018PlanckCosmology}. This component seems to exert a negative pressure, $p_{de} \leq - \rho_{de}$; it can be parametrised in terms of the equation-of-state parameter, $w_0$ -- where, if $w_0 = -1$, dark energy is simply the cosmological constant, $\Lambda$, as $p_{\Lambda}= - \rho_{\Lambda}$. Any deviation from $w_0 = -1$ would mean new physics, beyond the standard $\Lambda$CDM model. Current observations from the Dark Energy Survey combined with BAO measurements from BOSS \citep{2016BOSSCosmology}, and CMB from Planck \citep{PlanckCosmology2016} seem to suggest that $w_0 = -1.00^{+0.04}_{-0.05}$. Measurements shown in Chapter \ref{Chap:BOSS-Cosmo} are consistent with the DES findings; these seem to suggest that dark energy is simply the cosmological constant, $\Lambda$. A lot of questions are still unanswered in Cosmology as the nature of $\Lambda$ is still unknown -- if one does not accept it as a fundamental property of spacetime.
+
+\qquad As an extension of the standard dark energy model, via parametrising $w_0$, it is common to generalise Equation \eqref{Eq:Intro:HubbleOmega2} for a case where the equation-of-state of dark energy varies over redshift \citep{2001Chevallier,2011Shi,2014DarkEnergyReview}. For a flat Universe, 
+
+\begin{equation}
+    E^2(z) = \left[ \Omega_r (1+z)^4 + \Omega_m(1+z)^3 + (1 - (\Omega_r+\Omega_m))f(z)\right],
+\end{equation}
+where $\Omega_{de} \equiv 1 - (\Omega_r+\Omega_m)$ is the normalised energy density of dark energy. The redshift evolution for this quantity is now encompassed into the function, $f(z)$, and it can be generically expressed by \citep{2011Shi,2014DarkEnergyReview}: 
+
+\begin{equation}
+    f(z) \equiv \frac{\rho_{de}(z)}{\rho_{de}(z=0)} = \exp \left\{ 3 \int_0^z [1 + w(z')]\frac{dz'}{(1+z')} \right\}.
+\end{equation}
+For the case where there's no redshift dependency on the equation-of-state of dark energy, the same expression as in Equation \eqref{Eq:Intro:EoS} is recovered, i. e. $\rho_{de}(z)/\rho_{de}(z=0) = (1+z)^{3(1+w_0)}$. However, current state-of-the-art cosmological data does not contain sufficient constraining power to determine if such redshift evolution on $w(z)$ exists or not \citep{ 2016BOSSCosmology,2018PlanckCosmology}.
+
 
 \subsubsection{Neutrinos, $\Omega_{\nu}$:}
-Produced by weak force interactions, neutrinos come in three different leptonic flavours: neutrino electron ($\nu_e$), neutrino muon ($\nu_{\mu}$), and neutrino tau ($\nu_{\tau}$); which are all associated with their corresponding charged leptons: electron, muon, and tau (see Figure \ref{fig:Intro:StandardModel}). As mentioned before, experiments in the late 90s like the Super Kamiokande \citep{Kamiokande1998} and subsequent experiments \citep{2002SNO,2005KamLAND,2008MINOS,2012RENOExperiment,AbeNeutrino2014} demonstrated that neutrinos oscillate between flavours which was a smoking gun to the theory that neutrinos have finite mass eigenstates. The total mass of neutrinos and their hierarchy (or ordering) is still unknown as particle physics oscillation experiments can only measure the square mass splitting between species \citep{2014Gonzalez-GarciaNeutrino}:
+Produced by weak force interactions, neutrinos come in three different leptonic flavours: neutrino electron ($\nu_e$), neutrino muon ($\nu_{\mu}$), and neutrino tau ($\nu_{\tau}$); which are all associated with their corresponding charged leptons: electron, muon, and tau (see Figure \ref{fig:Intro:StandardModel}). As mentioned, experiments in the late 90s like the Super Kamiokande \citep{Kamiokande1998} and subsequent experiments \citep{2002SNO,2005KamLAND,2008MINOS,2012RENOExperiment,AbeNeutrino2014} demonstrated that neutrinos oscillate between flavours which was a smoking gun to the theory that neutrinos have finite mass eigenstates. The total mass of neutrinos and their hierarchy (or ordering) is still unknown as particle physics oscillation experiments can only measure the square mass splitting between species \citep{2014Gonzalez-GarciaNeutrino}:
+
 \begin{align}
 \Delta m_{21}^2 & \equiv m_2^2 - m_1^2 \nonumber \\ 
 				& \approx 7.49^{+0.19}_{-0.17} \times 10^{-5}\, \text{eV}^2 \label{Eq:Intro:Mass21}
@@ -304,22 +328,35 @@ The measurement in Equation \eqref{Eq:Intro:Mass21} comes from solar neutrino os
 \EQ{Intro:NuRho1}{
 \rho_{\nu} = \frac{7}{8}\left( \frac{4}{11}\right)^{3/4}\rho_{\gamma}
 }
-where the factors in the above equation are related to the degeneracy factor of neutrinos, the fact that neutrinos are fermions and obey a Fermi-Dirac distribution which leads to a factor of $(4/11)^{1/3}$, and, finally, the energy density of massless particles scaling with temperature with $T^{4}$ for photons \citep{dods}. For massive neutrinos, Equation \eqref{Eq:Intro:NuRho1} can be expressed as 
+where the factors in the above equation are related to the degeneracy factor of neutrinos, the fact that neutrinos are fermions and obey a Fermi-Dirac distribution which leads to a factor of $(4/11)^{1/3}$, and, finally, the energy density of massless particles scaling with temperature with $T^{4}$ for photons \citep[][p. 45]{dods}. For massive neutrinos, Equation \eqref{Eq:Intro:NuRho1} can be expressed as 
 \EQ{}{
 \rho_{\nu'} = \frac{2}{(2\pi)^3}\int d^3p \frac{\sqrt[]{p^2 + (m_{\nu'})^2}}{e^{p/T_{\nu'}}+1}.
 }
-for each individual neutrino species, $\nu'$. After the neutrino temperature ($T_{\nu'}$) drops to $T_{\nu'} \sim  m_{\nu'}$, massive neutrinos start behaving non-relativistically and their overall contribution to the energy density content of the Universe is \citep{2003HannestadNeutrino}
+for each individual neutrino species, $\nu'$. After the neutrino temperature ($T_{\nu'}$) drops to $T_{\nu'} \sim  m_{\nu'}$, massive neutrinos start behaving non-relativistically. For a specific massive species with mass $m_{\nu}$, this effect happens around a redshift of
+
+\begin{equation}
+    z_{\text{n-r}} \approx \frac{m_{\nu}}{3k_B T_{\nu,0}} \approx 2\times 10^3 \left(\frac{m_{\nu}}{1 \text{ eV}} \right),
+\end{equation}
+where $T_{\nu,0}$ is the present-day redshifted neutrino temperature \citep{2000-NeutrinosDarkMatter}, given by
+
+\begin{equation}
+    T_{\nu,0} = \left( \frac{4}{11}\right)^{1/3}T_{\gamma,0} = 1.947 \text{K},
+\end{equation}
+leading to an overall contribution to the energy density content of the Universe from neutrinos to be expressed as \citep{2003HannestadNeutrino}
 
 \EQ{}{
-\Omega_{\nu} \approx \frac{\sum m_{\nu}}{92.5h^2 \text{eV}}
+\Omega_{\nu} \approx \frac{\sum m_{\nu}}{92.5h^2 \text{eV}}.
 }
 
+\qquad The redshift $z_{\text{n-r}}$ marks the moment at which neutrinos stop behaving as radiation and start behaving as matter. At this moment, the average neutrino background momentum is given by $\langle p_{\nu}\rangle = 3.15k_BT_{\nu}$; while after they become non-relativistic, the average speed is decribed as $\langle v_{\nu}\rangle \approx 160 \text{ km/h} \left( \frac{1 \text{eV}}{m_{\nu}}\right) \left( \frac{T_{\nu}}{1.947K}\right)$. Since the neutrino background temperature drops with $T_{\nu}\propto a^{-1}$, the massive neutrinos will slow down as the Universe expands \citep{2000-NeutrinosDarkMatter}. Since $z_{\text{n-r}}$ happens much later than the matter-radiation equality, $z_{eq}\sim 24000\Omega h^2$, neutrinos are still relativistic at this moment which prevents massive neutrinos from gravitationally clustering during this period. As a result, neutrinos `free-stream' introducing a characteristic length scale related to the horizon size at this epoch, $L_{fs} \approx 112 \text{ Mpc}\left( m_{\nu}/1 \text{ eV}\right)$ \citep{2000-NeutrinosDarkMatter,2003HannestadNeutrino,2017Lancaster-NeutrinosFreeStream}.
 
-\qquad Still, massive neutrinos act as some sort of ``warm dark matter" as they are almost relativistic while barely interacting with matter other than gravitationally -- this means that massive neutrinos tend to ``wash away'' structure in smaller scales. In \cite{2003HannestadNeutrino}, and more recently in \cite{2016Hannestad}, the authors demonstrate the case for measuring not only the upper limit for $\sum m_{\nu}$, but also the neutrino mass hierarchy from cosmological galaxy surveys. In Chapter \ref{Chap:Neutrinos}, I explore the impact of modelling the neutrino mass and neutrino mass hierarchy using different assumptions and datasets.
+\qquad Still, massive neutrinos act as some sort of `warm dark matter' as they are almost relativistic while barely interacting with matter other than gravitationally -- this means that massive neutrinos tend to `wash away' structure in smaller scales. In \cite{2003HannestadNeutrino}, and more recently in \cite{2016Hannestad}, the authors demonstrate the case for measuring not only the upper limit for $\sum m_{\nu}$, but also the neutrino mass hierarchy from cosmological galaxy surveys. In Chapter \ref{Chap:Neutrinos}, I explore the impact of modelling the neutrino mass and neutrino mass hierarchy using different assumptions and datasets.
 
 
 \subsubsection{Curvature, $\Omega_K$:}
-As shown in Equation \eqref{Eq:Intro:K} and Figure \ref{fig:Intro:Geometry}, there is a direct relationship between the curvature of the Universe, its energy content, and the critical density, $\rho_c$. If $\Omega = 1$, the Universe is perfectly flat with $K=0$. Recent results from the Planck collaboration observations estimate $\Omega_K = 1 - \Omega = 0.0007\pm 0.0037$ \citep{2018PlanckCosmology}. This is a very strong observational evidence that the Universe is flat, meaning that the energy density of the Universe is precisely the critical density with 0.2\% accuracy. 
+As shown in Equation \eqref{Eq:Intro:K} and Figure \ref{fig:Intro:Geometry}, there is a direct relationship between the curvature of the Universe, its energy content, and the critical density, $\rho_c$. If $\Omega = 1$, the Universe is perfectly flat with $K=0$. Balloon-based experiments in the late 90s and early 00s, like BOOMERanG \citep{2000-BOOMERANG} and MAXIMA \citep{2000Hanany-MAXIMA}, were able to determine the overall geometry of the Universe by locating the first acoustic peak in the angular power spectrum of cosmic microwave background temperature anisotropies. \cite{2000-BOOMERANG} found a peak at a multipole $\ell_{\text{peak}} = 197\pm 6$ with an amplitude of $\Delta T_{\ell=200} = (69\pm 4) \pm 7$ mK\footnote{ These are 1-$\sigma$ statistical and calibration errors, respectively -- according to \cite{2000-BOOMERANG}}. The value of $\ell_{\text{peak}}$ is mostly sensitive to two main cosmological parameters: the angular diameter distance from the observer to decouple; and the acoustic sound horizon scale -- this is due to density fluctuations with scales near the size of the sound horizon at decoupling producing this first peak in the CMB power spectrum. A flat Universe would present a $\ell_{\text{peak}}\approx 200/\Omega^{1/2}$; meanwhile, an open (closed) Universe would shift the position of the first acoustic peak to higher (lower) multipoles.
+
+\qquad Recent results from the Planck collaboration observations estimate $\Omega_K = 1 - \Omega = 0.0007\pm 0.0037$ \citep{2018PlanckCosmology}. This is a very strong observational evidence that the Universe is flat, meaning that the energy density of the Universe is precisely the critical density with 0.2\% accuracy. 
 
 \vspace{5mm}
 
@@ -355,7 +392,14 @@ To obtain the evolution of the matter overdensity field, one needs to solve a se
 }
 where $\mathcal{C}[f]$ accounts for any sort of collisions and coupling a component might experience throughout the evolution of the Universe.
 
-\qquad The left hand side of Equation \eqref{Eq:Intro:Boltzmann} takes into account perturbations in the background FRW metric. Using the conformal Newtonian gauge \citep{dods}, the background metric can be described using two potentials with dependence on spacetime: $\Psi (\textbf{r}, t)$ and $\Phi (\textbf{r}, t)$. The non-vanishing terms in the perturbed metric are
+\qquad The left hand side of Equation \eqref{Eq:Intro:Boltzmann} takes into account perturbations in the background FRW metric. In a generic way, scalar perturbations in the metric can be described using four functionals: $A$, $B$, $C$, and $D$ \citep[][ p. 132]{dods}:
+\begin{align}
+    g_{00} & = -(1+2A)\, , \\
+    g_{0i} & = -aB_{,i}\, , \\
+    g_{ij} & = a^2\left( \delta_{ij} \left[ 1-2C \right] -2D_{,ij} \right)\, .
+\end{align}
+
+All four functionals are scalars and depend on both space and time variables. The conformal Newtonian gauge \citep[][p. 87]{dods} describes the background metric using two potentials with dependence on spacetime. In terms of the before-mentioned functionals: $A = \Psi (\textbf{r}, t)$, $C = -\Phi (\textbf{r}, t)$, and $B=D=0$\footnote{Here, I am following the convention set by \cite{dods}. In comparison to \cite{1980Bardeen} gauge invariant variables one has $\Phi_A = \Psi$ and $\Phi_H = -\Phi$. } \citep{1995Gauges}. In other words, the non-vanishing terms in the perturbed metric are
 \EQ{Intro:PertMetric_00}{
 g_{00}(\textbf{r},t)=-(1+2\Psi(\textbf{r},t))
 }
@@ -363,7 +407,7 @@ and
 \EQ{Intro:PertMetri_ij}{
 g_{ij}(\textbf{r}, t) = a^2(t)(1+2\Phi(\textbf{r},t))\delta_{ij}
 }
-which, for a Universe with no anisotropic stress, leads to $\Psi (\textbf{r},t) = \Phi(\textbf{r},t)$ \citep{Peacock}. Equation \eqref{Eq:Intro:Boltzmann} can now be re-written as
+which, for a Universe with no anisotropic stress, leads to $\Psi (\textbf{r},t) = - \Phi(\textbf{r},t)$ \citep{Peacock}. Equation \eqref{Eq:Intro:Boltzmann} can now be re-written as
 \EQ{Intro:BoltzmannFinal}{
 \frac{\partial f}{\partial t} +\frac{p\hat{p}_i}{a(t)E} \frac{\partial f}{\partial x^i}-\frac{\partial f}{\partial E}\left( \frac{p^2}{E}\dot{\Phi} + \frac{\partial \Psi}{\partial x^i}\frac{p\hat{p}_i}{a(t)} + \frac{p^2}{E}H(t)\right) = \left[ \frac{\partial f}{\partial t} \right]_{\mathcal{C}}\, ,
 }
@@ -383,14 +427,17 @@ Higher multipole modes describe the small scale domain, while lower multipoles d
 
 \qquad The other relativistic components of the Universe can be equally described; using a similar approach one can describe the neutrino density perturbations expressed by $\mathcal{N}(k,\mu,\eta)$. The non-relativistic components can be described by the overdensity field, $\delta_{cdm}(k,\eta)$ and $\delta_b(k,\eta)$ -- for dark and baryonic matter, respectively --, and their velocity fields in Fourier space, $v_{cdm}(k,\eta)$ and $v_{b}(k,\eta)$.  
 
-\qquad In order to keep the discussion brief, I will skip the linear perturbation equations derivation,\footnote{A more detailed discussion can be found in books like \cite{padmanabhan_1999,Peacock} and \cite{dods}.} restraining myself to mention that the following equations are obtained when combining the Boltzmann equation, Equation \eqref{Eq:Intro:BoltzmannFinal}, for photons, neutrinos, dark matter, and baryons taking into account their couplings. This leads to the following set of coupled equations\footnote{Here, primes represent conformal time derivatives, $' \equiv d/d\eta$.} describing the evolution of each of the components \citep{dods}:
+\qquad In order to keep the discussion brief, I will skip the linear perturbation equations derivation,\footnote{A more detailed discussion can be found in books like \cite{padmanabhan_1999,Peacock} and \cite{dods}.} restraining myself to mention that the following equations are obtained when combining the Boltzmann equation, Equation \eqref{Eq:Intro:BoltzmannFinal}, for photons, neutrinos, dark matter, and baryons taking into account their couplings. This leads to the following set of coupled equations\footnote{Here, primes represent conformal time derivatives, $' \equiv d/d\eta$.} describing the evolution of each of the components \citep[][p. 100]{dods}:
 \EQ{Intro:Boltz1}{
 \Theta' + ik\mu\Theta + \Phi'+ik\mu\Psi = -\tau'\left[ \Theta_0 - \Theta + v_b\mu -\frac{1}{2}\mathcal{L}_2(\mu)\left( \Theta_2 + \Theta_{P2} +\Theta_{P0} \right) \right] \, ,
 }
 \EQ{Intro:Boltz2}{
 \Theta_P' + ik\mu\Theta_P = -\tau' \left[ -\Theta_P +\frac{1}{2}\left( 1 - \mathcal{L}_2(\mu)\right)\left( \Theta_2 + \Theta_{P2} +\Theta_{P0} \right) \right] \, ,
 }
-which describes the coupling between the photon's temperature , their strength of polarisation, $\Theta_P$, and speed of baryons. These also depend on the baryons' velocity and the photons' optical depth, $\tau$ -- the number of photon-electron interactions between a certain interval of conformal time. The following four equations in the set describe the couplings between components related to the baryonic and dark matter interactions and the baryonic coupling with photons, 
+which describes the coupling between the photon's temperature , their strength of polarisation, $\Theta_P$, and speed of baryons -- due to Doppler shift. These also depend on the baryons' velocity and the photons' optical depth, $\tau$ -- the number of photon-electron interactions between a certain interval of conformal time. The RHS of Equations \eqref{Eq:Intro:Boltz1} and \eqref{Eq:Intro:Boltz2} contain a quadrupole term, $\propto \mathcal{L}_2 (\mu)Theta_2/2$, which accounts for the angular dependency of the photons' temperature due to Compton scattering; the same term also connects the temperature quadrupole with the strength of photons' polarisation's monopole and quadrupole. From Equation \eqref{Eq:Intro:Boltz2} one should note that only the quadrupole moment of the photons' temperature affects $\Theta_P$ \citep[][p. 112]{dods}.
+
+\qquad The following four equations in the set describe the couplings between components related to the baryonic and dark matter interactions and the baryonic coupling with photons, 
+
 \EQ{Intro:Boltz3}{
 \delta_b' + ikv_b = -3\Phi'\, ,
 }
@@ -423,7 +470,7 @@ which can be perturbed to first order, allowing the Einstein field equations to 
 			& = 8\pi G \delta T^0_0 \\
             & = 8\pi G \delta\rho
 }
-This is a general expression for the usual Poisson equation and it can be now expressed in Fourier space, using a coordinate transformation to conformal time \citep{Peacock,dods}
+This is a general expression for the usual Poisson equation and it can be now expressed in Fourier space, using a coordinate transformation to conformal time \citep[][pages ?? and 123, respectively]{Peacock,dods}
 
 \EQ{}{
 k^2\Phi + 3\frac{a'}{a}\left( \Phi' - \frac{a'}{a}\Psi \right) & = -4\pi G \rho \\
@@ -440,7 +487,7 @@ which, perturbed to first order, can be expressed as
 \EQ{}{
 \delta G^i_{\ \ j} = \frac{1}{a^2}k^ik_j(\Psi + \Phi)\, ,
 }
-for the components that present anisotropic stress, i. e. $\Psi \neq \Phi$; these components are the neutrinos and the photons. Using the projector operator, $\Pi_i^{\ \ j} = \hat{k}_i\hat{k}^j  - \delta_i^{\ \ j}/3$, the last equation related to the spacial components of Einstein's field equations can be expressed as \citep{dods}
+for the components that present anisotropic stress, i. e. $\Psi \neq \Phi$; these components are the neutrinos and the photons. Using the projector operator, $\Pi_i^{\ \ j} = \hat{k}_i\hat{k}^j  - \delta_i^{\ \ j}/3$, the last equation related to the spacial components of Einstein's field equations can be expressed as \citep[][p. 124]{dods}
 
 \EQ{}{
 k^2(\Psi + \Phi) = -32\pi G a^2 \left( \rho_{\gamma}\Theta_2 + \rho_{\nu}\mathcal{N}_2\right)\, ,
@@ -476,12 +523,14 @@ where
 \xi(\textbf{r}) = \frac{V}{(2\pi)^3}\int d^3 k |\tilde{\delta}(k)|^2e^{-i\textbf{k}\cdot\textbf{r}}\, ,
 }
 with $V \equiv L^3$ being the volume. The \textbf{power spectrum} can simply be defined as the quantity appearing as the correlation function's Fourier counterpart in Equation \eqref{Eq:Intro:CorrFunc2},
+
 \EQ{}{
 \langle \tilde{\delta}(\textbf{k}) \tilde{\delta}^*(\textbf{k}') \rangle = (2\pi)^3 P(\textbf{k}) \delta_D(\textbf{k} - \textbf{k}') \, ,
 }
-with $\delta_D(\textbf{k} - \textbf{k}')$ being the Dirac delta function. In other words, the power spectrum is the second momentum (covariance) of the overdensity field in Fourier space. 
+with $\delta_D(\textbf{k} - \textbf{k}')$ being the Dirac delta function. The $\langle ... \rangle$ in the LHS of the equation above denote an ensemble average over a certain volume in $k$-space. Since descriptions of quantities in the Universe which depends on spacetime coordinates can only be discussed as a matter of probabilities, one needs to invoke the Ergodic theorem\footnote{For a complete proof of the Ergodic theorem and more details, check the Appendix D from \cite{weinberg2008cosmology}.}. Such theorem shows that, under fair assumptions such as homogeneity and isotropy, the statistical ensemble average and the spacial or temporal average are the same. This allows cosmologists to compare theory with ensemble averages using data averaged over volume. In that case, the power spectrum is the second momentum (covariance) of the overdensity field in Fourier space. 
 
 \qquad In an isotropic Universe, the angular dependency in the power spectrum vanishes and the interplay with the correlation function can be expressed as
+
 \EQ{}{
 \xi (r) = \frac{4\pi V}{(2\pi)^3}\int dk k^2 P(k) \frac{\sin (kr)}{kr} \, , 
 }
@@ -500,20 +549,21 @@ As mentioned in the previous section, codes like \camb and \class can be used to
 \end{center}
 \end{figure}
 
-\qquad The growth factor determines the evolution of amplitude fluctuations in the Universe. A few approximations can be made in order to calculate this function and its redshift dependency; in a Newtonian approximation, for example, the growth function comes from solving the following differential equation \citep{schneider_2016}:
+\qquad The growth factor determines the evolution of amplitude fluctuations in the Universe. A few approximations can be made in order to calculate this function and its redshift dependency; in a Newtonian approximation, for example, the growth function comes from solving the following differential equation \citep[][p. 345]{schneider_2016}:
 \EQ{}{
 \ddot{D}(z) + \frac{2\dot{a}}{a}\dot{D}-4\pi G \bar{\rho}(z)D(z) = 0 \, ,
 }
-which, in terms of the scale factor, has the following solution at late times \citep{dods,schneider_2016}:
+which, in terms of the scale factor, has the following solution at late times \citep[][pages 206 and 345, respectively]{dods,schneider_2016}:
 
 \EQ{}{
 %D(a) = \frac{5\Omega_m}{2}\frac{H(a)}{H_0}\int_0^a \left( a' H(a')/H_0\right)^{-3}da'
-D(a) = \frac{5\Omega_m}{2}\frac{H(a)}{H_0}\int_0^a \left[ \Omega_m/a' + \Omega_{\Lambda}a'^2 - (\Omega_m + \Omega_{\Lambda} -1 )\right]^{-3/2}da' \, ,
-}
+D(a) = \frac{5\Omega_m}{2}\frac{H(a)}{H_0}\int_0^a \left[ \Omega_m/a' + \Omega_{\Lambda}a'^2 - (\Omega_m + \Omega_{\Lambda} -1 )\right]^{-3/2}da' \, ,}
+
 where a convention of $D(z=0)=1$ was used. The impact of $D(z)$ in the two-point statistics can be see in Figure \ref{fig:Pk_Cf} for a fiducial $\Lambda$CDM model.
 %\subsubsection{Galaxy bias and non-linear scales:}
 
 \qquad Dark matter, however, does not interact electromagnetically with baryonic matter which complicates any attempts to directly measure fluctuations in the underlying matter density field. Although no direct dark matter observations were made so far \citep{2017DarkMatterExpReview}, matter tends to cluster due to gravity, i. e. both dark and baryonic matter interact gravitationally. This causes baryonic matter, in the form of galaxies, clusters of galaxies, intergalactic gas, and more to act as a biased tracer of the underlying matter overdensity field, $\delta_g = b\delta$ \citep{2000-BensonBias,1999Ofer-Bias}. This bias can be represented as a function of several different aspects of galaxies: luminosity \citep{2000-BensonBias,2004PVP,2013Baugh-LumBias}, scale \citep{1999Ofer-Bias,2008ScaleBias,2008Hamann-ScaleBias,2018Simon-ScaleBias}, galaxy type \citep{2008Sanchez-Bias,2016AbramoSeccoLoureiro}, and redshift \citep{1994FKP,1998Heavens-Verde,2000-BensonBias}. The underlying physics in this process is that more massive halos will form more massive galaxies, which will have different star formation histories, affecting mainly these before-mentioned aspects. The work presented in the subsequent sections and chapters, considers bias simply to be a function of redshift as a first order approximation. Therefore, its impact on the power spectrum of galaxy distributions, $P_g(k)$, is 
+
 \EQ{}{
 P_g(k,z) = b^2(z)P(k,z) \, .
 }
@@ -524,7 +574,7 @@ P_g(k,z) = b^2(z)P(k,z) \, .
 %				            BAO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Baryon acoustic oscillations:}
-The shape of both two-point statistics in Figure \ref{fig:Pk_Cf}, either in real or in Fourier space, raises attention to an interesting feature: the secondary peak in the correlation functions, manifested as wiggles in the power spectra. This peak is caused due to acoustic perturbation in the primordial baryon-photon plasma during radiation dominated era and are called baryon acoustic oscillations, or BAOs. Acoustic peaks were firstly observed in the CMB temperature angular power spectrum which raised the question if any similar features would appear in the large scale structure of galaxies. In 2005, two independent collaborations, SDSS and 2dFGRS, simultaneously reported measurements of the BAO peak. One of the measurements, carried out by the SDSS collaboration was performed using the 3D correlation function of luminous red galaxies (LRGs); detailes were presented in \cite{Einsenstein2005}. The other independent measurement, carried out by the 2dFGRS and presented in \cite{2005Cole-2dF}, was performed in Fourier space. Both compared the measured 2-pts statistics against a fiducial model with no Baryon acoustic oscillations and obtained a significant detection of this effect for late time cosmological probes.
+The shape of both two-point statistics in Figure \ref{fig:Pk_Cf}, either in real or in Fourier space, raises attention to an interesting feature: the secondary peak in the correlation functions, manifested as wiggles in the power spectra. This peak is caused due to acoustic perturbation in the primordial baryon-photon plasma during radiation dominated era and are called baryon acoustic oscillations, or BAOs. Acoustic peaks were firstly observed in the CMB temperature angular power spectrum which raised the question if any similar features would appear in the large scale structure of galaxies. Using data from the 2-degree Field Galaxy Redshift Survey (2dFGRS), \cite{2001Percival} reported that their measurements of the 3D power spectra of galaxies `mildly preferred models where Baryon acoustic oscillations introduced wiggles in the $P_g(k)$ against a featureless power spectra'.Later, in 2005, two independent collaborations, SDSS and 2dFGRS, simultaneously reported measurements of the BAO peak. One of the measurements, carried out by the SDSS collaboration was performed using the 3D correlation function of luminous red galaxies (LRGs); detailes were presented in \cite{Einsenstein2005}. The other independent measurement, carried out by the 2dFGRS and presented in \cite{2005Cole-2dF}, was performed in Fourier space. Both compared the measured 2-pts statistics against a fiducial model with no Baryon acoustic oscillations and obtained a significant detection of this effect for late time cosmological probes.
 
 %The tight coupling between baryons and photons in the primordial plasma during the radiation dominated era lead to what is called baryon acoustic oscillations, causing this peak to appear later on the statistical distribution of galaxies. These acoustic peaks were firstly observed in the CMB temperature angular power spectrum which raised the question if any consequences would appear in the large scale structure of galaxies. In \cite{Einsenstein2005}, this acoustic oscillations were first measured using the statistical distribution of SDSS luminous red galaxies (LRGs); the BAO peak was observed in the measured correlation function. 
 \qquad The physical process behind the formation of BAO comes from the end of recombination era around $z \approx 1100$. The sound speed in the hot baryon-photon plasma decreased significantly and waves propagated due to the initial cosmological perturbations in this relativistic plasma. Baryons and photons were coupled both via Thompson scattering, gravitational attraction and radiation pressure; these couplings set up oscillations imprinting a characteristic length scale related to the oscillatory modes and the sound horizon at that epoch. Right after the period of recombination, the Universe goes through a period in which is non-ionised, `freezing' the baryonic oscillation scale while photons freely propagate. The density excess in the baryonic content of the Universe then interacts gravitationally with the non-coupled dark matter, later forming the distribution of galaxies with an imprinted acoustic peak.
@@ -546,7 +596,7 @@ One of the earliest predictions from the General Theory of Relativity was that g
 
 \qquad Years after the eclipse, it is well known from General Relativity and observations that gravity causes light to bend like it does in the presence of lenses. One of the most impressive facts about this effect is that it allows for a reconstruction of dark matter's distribution even without the ability to properly observe it. As light is bend by matter, so it is by dark matter which deflects and distorts the shapes and sizes of background galaxies in relation to a massive foreground like a cluster. In first order, the lensing effects can be summarised by two phenomena: an isotropic dilatation called convergence, $\kappa$, and an anisotropic distortion called shear, $\gamma$. 
 
-\qquad To understand these effects, one starts from an approximation of the lens equation -- which relates the true angle between an observer and an object, $\theta_{\text{src}}$, and the observed angle in the sky due to the bending of light, $\theta_{\text{obs}}$ \citep{dods}:
+\qquad To understand these effects, one starts from an approximation of the lens equation -- which relates the true angle between an observer and an object, $\theta_{\text{src}}$, and the observed angle in the sky due to the bending of light, $\theta_{\text{obs}}$ \citep[][p. 296]{dods}:
 
 \EQ{}{
 \theta_{\text{src},i} = A_{ij}\theta_{\text{obs},j}\, .
@@ -677,11 +727,11 @@ Following, using a matrix notation in the Taylor expansion's first term, the lik
 \EQ{}{
 \Pr(\bm{\theta}|\vec{D},M)\propto \exp\left[-\frac{1}{2}(\bm{\theta} - \mathbf{\Theta}_0)^T\bm{\nabla\nabla}\mathbb{L}(\mathbf{\Theta}_0)(\bm{\theta} - \mathbf{\Theta}_0)  \right] \, ,
 }
-a multivariate Gaussian distribution where the $N\times N$ matrix of second derivatives, $\bm{\nabla\nabla}\mathbb{L}(\mathbf{\Theta}_0)$, is related to Fisher information matrix -- and, consequently, the covariance matrix:
+a multivariate Gaussian distribution where the $N\times N$ matrix of second derivatives is known as the Hessian, $\bm{\nabla\nabla}\mathbb{L}(\mathbf{\Theta}_0)$. The Fisher information matrix is related to the Hessian as its expectation value -- and, consequently, it is also related to the covariance matrix:
 \EQ{}{
-\mathcal{F}_{ij} = -(\bm{\nabla\nabla}\mathbb{L})_{ij} = \text{Cov}^{-1}_{ij}\, .
+\mathcal{F}_{ij} = \langle-(\bm{\nabla\nabla}\mathbb{L})_{ij}\rangle = \text{Cov}^{-1}_{ij}\, .
 }
-However, the Cram\'er-Rao theorem affirms that this equality only holds if the estimated best-fit value is truly at the maximum posterior for a multivariate Gaussian, otherwise $\text{Cov}_ij \geq \mathcal{F}^{-1}_{ij}$. Section \ref{Sec:LikelihoodsPriors} gets into the cosmological parameter estimation problem in more details.
+However, the Cram\'er-Rao theorem affirms that this equality only holds if the estimated best-fit value is truly at the maximum posterior for a multivariate Gaussian, otherwise $\text{Cov}_{ij} \geq \mathcal{F}^{-1}_{ij}$. Section \ref{Sec:LikelihoodsPriors} gets into the cosmological parameter estimation problem in more details.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %				MC MONTE-CARLO
@@ -826,7 +876,7 @@ with $E(z)$ defined as in Equation \eqref{Eq:Intro:HubbleOmega2}.
 \subsection{Big Bang Nucleosynthesis}
 Big Bang Nucleosynthesis (BBN) is a very broad and extensive area of cosmology, here I present a brief review of the areas of this field relevant for the present work. A complete review on BBN can be found in \cite{2007Steingman-BBN} and, more recently, \cite{2016Particle-Review}.
 
-\qquad Around the first twenty minutes of the Universe, the production of most of what it is considered to be `light elements' took place. These are $^3$He,$^4$He, D, and $^7$Li \citep{2007Steingman-BBN}. The abundances of such primordial elements provide us with information about the conditions of the Universe at very early stages, the very first minutes after what it is believed to be a `Big Bang'. At sufficiently high temperatures and densities for the primordial plasma, both protons and neutrons will fuse to form atomic nuclei. The main baryonic reactions at the very early Universe maintain chemical equilibrium, these are \citep{2016Particle-Review,schneider_2016}:
+\qquad Around the first twenty minutes of the Universe, the production of most of what it is considered to be `light elements' took place. These are $^3$He,$^4$He, D, and $^7$Li \citep{2007Steingman-BBN}. The abundances of such primordial elements provide us with information about the conditions of the Universe at very early stages, the very first minutes after what it is believed to be a `Big Bang'. At sufficiently high temperatures and densities for the primordial plasma, both protons and neutrons will fuse to form atomic nuclei. The main baryonic reactions at the very early Universe maintain chemical equilibrium, these are \citep[][p. 196]{2016Particle-Review,schneider_2016}:
 \begin{align}
     p + e^- & \longleftrightarrow n + \nu \, , \label{Eq:proton1}\\
     p + \bar{\nu} & \longleftrightarrow n + e^+ \, ,\label{Eq:proton2}\\

@@ -259,7 +259,7 @@ D^{ij}_{\ell m} \equiv \frac{\Re(d_{\ell m}^i d_{\ell m}^{j \ast})}{J_{\ell m}}.
 \EQ{AlmPix}{
 d_{\ell m} = \sum_p \delta^g_p Y_{\ell m}^{\ast}(\theta_p,\phi_p) \Delta\Omega_p ,}
 
-\noindent where $(\theta_p,\phi_p)$ are the coordinates at the centre of pixel $p$, $\Delta\Omega_p$ is the area of $p$, and the sum is over all pixels in the survey region.
+\noindent where $(\theta_p,\phi_p)$ are the coordinates at the centre of pixel $p$, $\Delta\Omega_p$ is the area of $p$, and the sum is over all pixels in the survey region. Since the density field is being now discretised due to the pixalisation process, aliasing becomes an issue. This effect causes a false translation of power in certain multipoles if one samples bellow the Nyquist frequency. \footnote{The Nyquist frequency is highest frequency that can be calculated given a certain sampling rate, $\nu$, so the correct and complete signal can be recovered. It is defined to be $f_{Ny} = \nu/2$.} To avoid such issue, one should avoid measuring (and using) multipoles that are higher than twice the $N_{side}$, i. e. $\ell_{max} \leq 2N_{side}$.
 
 \qquad Pixelisation is a smoothing operator, and hence suppresses power at small scales. I now summarise here the standard treatment of this effect; see \cite{Healpix,Boris2013} and the \healpix documentation for details\footnote{For details on the pixel window function: \url{https://healpix.jpl.nasa.gov/html/intronode14.htm}}. Consider the contribution of a given pixel $p$ to $d_{\ell m}$ both for the (measured) pixelised field and for the (desired) ideal continuous field; the ratio of these quantities is 
 
@@ -398,7 +398,7 @@ where $n_*^i(z)$ is the raw redshift distribution, $\sigma_s$ (the variance of t
 \qquad This convolution can also be used to approximate a separate effect and more dominant effect, the so called Fingers-of-God (FoG) effect \citep{Percival-FoG2011}; which will actually dominate the measurements on $\sigma_s(z)$ in Equation \eqref{Eq:GaussianErrNz}. This is a form of redshift-space distortion (RSD) which arises as a result of random motions of galaxies within virialised structures, which elongates the appearance of structure in redshift space, i.e., it smears out the redshift distribution by the addition of Doppler shift to cosmological redshift. The convolution width $\sigma_s$ models the combined impact of spectroscopic redshift errors and of the FoG effect; $\sigma_s$ is then varied and marginalised over during the cosmological analysis. Due to the sensitivity of the cross-angular power spectra to these effects, a separate $\sigma_s$ is used for each redshift bin (for more details see Section \ref{Sec:LikelihoodsPriors}).
 
 \subsubsection{Redshift Space Distortions:}\label{Sec:RSD}
-The full large scale structure window function needs to take into account Redshift Space Distortions (RSD) \citep{Blake2007,Padm2007,Thomas2011}. This effect tends to increase the power for large scales, $\Delta \ell < 60$, due to the mix of redshift and peculiar velocities of galaxies. This local peculiar motion of galaxies creates the illusion that the ones moving towards us appear closer (i. e., they appear to be at lower redshifts); while galaxies with peculiar motion moving away from us, appear to be ever further away (i. e., they appear to be at lower at higher redshifts). This effect can be easily taken into account by adding the RSD window function  \citep{ScharfLahav1992, FisherLahav1994, Kirk2015, 2016McLeod} to equation \eqref{Eq:ClTheoretical}:
+The full large scale structure window function needs to take into account Redshift Space Distortions (RSD) \citep{1987Kaiser-RSD,Blake2007,Padm2007,Thomas2011}. This effect tends to increase the power for large scales, $\Delta \ell < 60$, due to the mix of redshift and peculiar velocities of galaxies. This local peculiar motion of galaxies creates the illusion that the ones moving towards us appear closer (i. e., they appear to be at lower redshifts); while galaxies with peculiar motion moving away from us, appear to be ever further away (i. e., they appear to be at lower at higher redshifts). This effect can be easily taken into account by adding the RSD window function  \citep{ScharfLahav1992, FisherLahav1994, Kirk2015, 2016McLeod} to equation \eqref{Eq:ClTheoretical}:
 
 \begin{equation}\label{Eq:Window_counts}
 W^{Tot,i}_{\ell}(k) = W^i_{g, \ell}(k) + W^i_{RSD,\ell}(k) \ , 
@@ -415,7 +415,10 @@ W^i_{RSD,\ell}(k)  = & \frac{\beta^i}{k} \int d\chi \frac{dn^i}{d\chi} j'_{\ell}
 \end{split}
 \end{equation}
 
-where the redshift distortion parameter, $\beta^i = (d \ln D(z)/d\ln a)/b^{i}(z) \approx \Omega_m^{\gamma}/b^i(z)$, is defined to be dependent on the bias of the given redshift shell or tracer. The RSD window function does not account for the FoG effect, which affects small scales due to the virial motion of galaxies inside clusters \citep{Kang2002}; instead, as discussed in \ref{Sec:SpecNz}, the FoG effect is subsumed into the spread of the spectroscopic redshift distribution.  
+where the redshift distortion parameter, $\beta^i = (d \ln D(z)/d\ln a)/b^{i}(z) \approx \Omega_m^{\gamma}/b^i(z)$, is defined to be dependent on the bias of the given redshift shell or tracer. The RSD window function does not account for the FoG effect, which affects small scales due to the virial motion of galaxies inside clusters \citep{Kang2002}; instead, as discussed in \ref{Sec:SpecNz}, the FoG effect is subsumed into the spread of the spectroscopic redshift distribution.  Note also that the relationship between the real-space power spectrum, $P(k)$, and the redshift space power spectrum, $P_{s}(k)$ is defined as in \cite{1987Kaiser-RSD}:
+\begin{equation}
+    P_s(k) = P(k)[1+\beta^2(k\chi(z))]^2 .
+\end{equation}
 
 \qquad Figure \ref{fig:Cl_Theory} shows the impact on the angular power spectrum of different effects considered in this section: redshift space distortions, non-linearities, and partial sky convolution with the mixing matrix. Some of these effects affect the angular power spectrum from different scales in different redshift ranges consider in this work.
 
@@ -574,7 +577,7 @@ and it encompasses for the Gaussian part of the covariance matrix. As in this wo
 
 \subsection{Covariance Matrix using log-normal Mocks}\label{Sec:Cov}
 %When obtaining cosmological parameters constrains from the PCL measurements presented in Section \ref{sec:BOSS:Measurements}, one needs reliable covariance matrices in order to estimate the measurement's errors. These covariances can be estimated using galaxy clustering mocks which reflect the cosmology, systematics effects, and any possible observational artifices that can influence the data. To do so, I use log-normal simulations instead of using Gaussian realisations \citep{Blake2007, Thomas2011} or the mocks provided by the BOSS Collaboration \citep{2016BOSSMocks}. One of the reasons why I do not make use of the official BOSS \texttt{PATCHY} mocks from \cite{2016BOSSMocks} is due to the different choice of redshift ranges for the samples: the CMASS \texttt{PATCHY} mocks do not contain galaxies beyond redshift $z_{max} \leq 0.75$ as the samples I selected go beyond this redshift range with $z_{max} \leq 0.80$ (Section \ref{sec:BOSS:data}). 
-As I seek to constrain cosmological parameters using observations; one of the requirements of this process is accurate covariance matrices. Covariances can be estimated using galaxy clustering simulations that reflect not only the cosmology but also systematic effects and observational artefacts. Previous works have used either Gaussian realisations \citep{Blake2007,Thomas2011,2016Nicola} or the mocks provided by the BOSS Collaboration \citep{2016BOSSMocks,Manera2013}. However this work instead uses log-normal simulations. The decision not to use the official BOSS \texttt{PATCHY} mocks from \cite{2016BOSSMocks} was made due to the different choice of redshift ranges for the samples: the CMASS \texttt{PATCHY} mocks do not contain galaxies beyond redshift $z = 0.75$ whereas the samples I selected extend to $z = 0.80$ (as described in Section \ref{Sec:Data}). 
+As I seek to constrain cosmological parameters using observations; one of the requirements of this process is accurate covariance matrices. Covariances can be estimated using galaxy clustering simulations that reflect not only the cosmology but also systematic effects and observational artefacts. Previous works have used either Gaussian realisations \citep{Blake2007,Thomas2011,2016Nicola} or the mocks provided by the BOSS Collaboration \citep{2016BOSSMocks,Manera2013}. However this work instead uses log-normal simulations \citep{1991-ColesJones}. The decision not to use the official BOSS \texttt{PATCHY} mocks from \cite{2016BOSSMocks} was made due to the different choice of redshift ranges for the samples: the CMASS \texttt{PATCHY} mocks do not contain galaxies beyond redshift $z = 0.75$ whereas the samples I selected extend to $z = 0.80$ (as described in Section \ref{Sec:Data}). 
 
 % \begin{figure}
 % \begin{subfigure}{.5\textwidth}
@@ -589,7 +592,43 @@ As I seek to constrain cosmological parameters using observations; one of the re
 % \label{fig:CovMat}
 % \end{figure}
 
-\qquad To generate the mocks, I use \texttt{FLASK}\footnote{\url{http://www.astro.iag.usp.br/~flask/}} \citep{Flask2016}, a publicly available code that produces log-normal simulations of correlated fields in the sphere. Here, I use the data $\hat{S}_{\ell}$ measurements as inputs for the simulations (as measured in Section \ref{Sec:Measurements}). This technique allows me to reproduce any sort of systematic effects, RSD, non-linear power spectra, and other known and unknown effects that may be present in the data with no need to model them nor assume any fiducial cosmology. This is a main benefit of this approach to covariance estimation: any effects present in the measured angular power spectra will be reproduced in \texttt{FLASK}'s simulations via the $S_{\ell}$s measured from the data. 
+
+\qquad Before outlining the mock generation and covariance estimation processes, I will briefly outline the log-normal formalism to properly sample the matter density field and the galaxy number counts maps.\footnote{A more detailed description can be found in Section 2.3 of \cite{LoureiroMestrado}.} The idea is to go beyond the usual approach of Gaussian simulations, since these cannot properly describe the late time matter density field's physical properties. \footnote{Unless re-scaled or truncated, Gaussian simulations have a considerably high probability of sampling nonphysical values for the matter density field, i. e. $\delta < -1$. However, both re-scaling or truncating the simulations will introduce biases.} One starts with a set of Gaussian variables -- or Gaussian realisations of the density field --, $\delta^i_g$, which follow a multi-variate Gaussian distribution with mean $\mu_i$ and variance $\sigma^2_i \propto \xi_g^{ii}$ (and covariance $\propto \xi_g^{ij}$). The log-normal density field can be expressed as \citep{LoureiroMestrado, Flask2016}:
+
+\begin{equation}
+    \delta_{LN}^i = \exp \{ \delta^i_g \} - 1 \, .
+\end{equation}
+
+By construction, the variable $\delta_{LN}^i$ is a log-normal random variable, with mean given by
+
+\begin{align}
+    \left\langle \delta^i_g \right\rangle & = e^{\mu_i}\left\langle e^{\delta^i_g - \mu_i} \right\rangle \\
+    & = e^{\mu_i}\sum_{n=0}^{\infty}\frac{\langle (\delta^i_g - \mu_i)^n \rangle}{n!}\, ,
+\end{align}
+where the last step expanded the averaged exponential into an infinite series \citep{1991-ColesJones,Flask2016}. The series are the Gaussian's central moments \citep{Flask2016}, leading to
+
+\begin{equation}
+    \left\langle \delta_{LN}^i \right\rangle = \exp \{ \mu_i + \xi^{ii}_g \} - 1 \, .
+\end{equation}
+
+\qquad Note, however, that the associated Gaussian correlation function, $\xi^{ij}_g$, is not the same as the desired 2-pts statistics for the log-normal density field (the input for the simulations). These are related by the following transformations \citep{1991-ColesJones,LoureiroMestrado}:
+
+\begin{equation}
+\xi^{ij}_{LN} = \langle \delta_{LN}^i \delta_{LN}^j\rangle =  \left(\exp\{\xi^{ij}_{g} \} -1 \right) \,
+\end{equation}
+and
+\begin{equation}
+\xi^{ij}_{g} = \ln\left( \xi^{ij}_{LN} + 1 \right)    \, .
+\end{equation}
+Limitations of this approach are discussed in detail in \cite{Flask2016}.
+
+\qquad Next, once the log-normal density field is sampled, an extra step is performed to produce galaxy number counts maps, $N^i_g(\theta_p, \phi_p)$, from a Poisson distribution. At each pixel $p$, the expected number of galaxies is given by:
+\begin{equation}
+    \langle N^i_g(\theta_p, \phi_p) \rangle = n^i(z)m(\theta_p, \phi_p)[1+\delta_{LN}(\theta_p, \phi_p)]
+\end{equation}
+where $n^i(z)$ is the redshift distribution in a given tomographic bin-$i$ and $m(\theta_p, \phi_p)$ is the angular mask of a given survey. 
+
+\qquad To generate the mocks, I use \texttt{FLASK}\footnote{\url{http://www.astro.iag.usp.br/~flask/}} \citep{Flask2016}, a publicly available code that produces log-normal simulations of correlated fields in the sphere. Here, I use the data $\hat{S}_{\ell}$ measurements as inputs for the simulations (as measured in Section \ref{Sec:Measurements}). This technique allows me to reproduce any sort of systematic effects, RSD, non-linear power spectra, and other known and unknown effects that may be present in the data with no need to model them nor assume any fiducial cosmology. This is a main benefit of this approach to covariance estimation: any effects present in the measured angular power spectra will be reproduced in \texttt{FLASK}'s simulations via the $S_{\ell}$s measured from the data. By construction, log-normal simulations can reproduce any moment of a log-normal distribution. According to \cite{1991-ColesJones} and \cite{Flask2016}, in order to reproduce higher order statistics beyond the 3-pts statistics, one should use N-Body simulations instead of log-normal ones. However, a study performed by \cite{2017DES-Multiprobe} shows that, for the Dark Energy Survey case, the cosmological results obtained from \flask simulations and a full covariance matrix, including the 4-point statistics, match to a percent level.
 
 \qquad For each of the samples, I produced 6,000 log-normal mocks to estimate the data covariance matrix. These mocks are also Poisson sampled to reproduce noise properties, radial and angular selection effects according to the data. 
 
