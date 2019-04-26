@@ -88,7 +88,7 @@ The CMASS sample was designed to be closer to a mass limited sample, extending t
 
 \qquad Although around 25,000 galaxies were targeted with slightly different selection criteria (see Section 3.3.1 from \cite{BOSSCatalogue2016} for further details), this does not affect significantly the sample's redshift distribution (in the way that it did for LOWZE2 and LOWZE3 samples), and therefore I retain these galaxies in the sample.
 
-\qquad Contrary from what was done in \cite{BOSSCatalogue2016} and \cite{2016BOSSCosmology}, I exclude the CMASS sample galaxies on the redshift range $0.40<z<0.45$ as the LOWZ sample has around $12\%$ more galaxies on this range, see figure \ref{fig:NZ_BOSS}. I also keep the galaxies beyond $0.75$ meaning that the redshift range I am using for CMASS is $0.45 \leq z < 0.80$ (figure \ref{fig:NZ_BOSS}). I made the first choice in order to maintain the same masks for each sample individually and in order to minimise any potential systematic effect due to redshift distributions. The second choice is made due to the way I deal with the low number of galaxies beyond $ z > 0.75$. These result in a different redshift range for CMASS and LOWZ than the ones quoted on the papers aforementioned.
+\qquad Contrary to what was done in \cite{BOSSCatalogue2016} and \cite{2016BOSSCosmology}, I exclude the CMASS sample galaxies on the redshift range $0.40<z<0.45$ as the LOWZ sample has around $12\%$ more galaxies on this range, see figure \ref{fig:NZ_BOSS}. I also keep the galaxies beyond $0.75$ meaning that the redshift range I am using for CMASS is $0.45 \leq z < 0.80$ (figure \ref{fig:NZ_BOSS}). I made the first choice in order to maintain the same masks for each sample individually and in order to minimise any potential systematic effect due to redshift distributions. The second choice is made due to the way I deal with the low number of galaxies beyond $ z > 0.75$. These result in a different redshift range for CMASS and LOWZ than the ones quoted on the papers aforementioned.
 
 \subsubsection{Total Galaxy Weights:}\label{Sec:GalWeights}
 Various observational effects, such as fibre collisions, will introduce bias into clustering statistics calculated from raw DR12 data. To offset this, the BOSS collaboration provides a weighting scheme for each object; clustering statistics calculated using object counts weighted by this scheme are then expected to be unbiased by such effects. The scheme is described in \cite{BOSSCatalogue2016}, which in turn was based on \cite{2014Anderson}. In this work, I use the same weighting scheme:
@@ -96,7 +96,7 @@ Various observational effects, such as fibre collisions, will introduce bias int
 %In order to obtain the correct unbiased clustering information from the galaxy catalogues, I apply the same weighting scheme proposed by \cite{BOSSCatalogue2016}, which was based on \cite{2014Anderson}. This weighting is provided on the catalogues downloaded from the BOSS DR12 website and are a combination of stellar density, seeing, redshift failures, fibre collisions and close-pair corrections:
 \qquad For each targeted galaxy the BOSS collaboration provides three components to the weighting scheme, corresponding to different observational effects \citep{BOSSCatalogue2016,2014Anderson}:
 \begin{itemize}
-\item{$w_{\text{systot}}$, a combination of stellar density with airmass, sky flux, reddening, and other seeing conditions;}
+\item{$w_{\text{systot}}$, a combination of stellar density with air mass, sky flux, reddening, and other seeing conditions;}
 \item{$w_{\text{cp}}$, which is due to close-pair objects, i. e., objects that can not have both their spectra measured due to fibre collisions;}
 \item{$w_{\text{noz}}$, which takes into account nearest neighbours following a redshift failure by up-weighting such galaxies.}
 \end{itemize}
@@ -232,7 +232,7 @@ d_{\ell m} = \int \delta^g(\theta,\phi) Y_{\ell m}^*(\theta,\phi) d\Omega.}
 \EQ{Jlm}{
 J_{\ell m} = \int_{\Omega_{tot}} \left|Y_{\ell m} \right|^2d\Omega \ .}
 
-\noindent This is a normalization factor due to the average of modes in the partial sky coverage; note that $J_{\ell m}=1$ for a full-sky survey. There will also be a term correcting for bias introduced by the partial sky measurement. However this term is proportional to the average field value; in the case considered this average vanishes, so the bias correction need not be made. See Appendix \ref{Apx:PCL} for details. 
+\noindent This is a normalisation factor due to the average of modes in the partial sky coverage; note that $J_{\ell m}=1$ for a full-sky survey. There will also be a term correcting for bias introduced by the partial sky measurement. However this term is proportional to the average field value; in the case considered this average vanishes, so the bias correction need not be made. See Appendix \ref{Apx:PCL} for details. 
 
 \qquad One can repeat this analysis for galaxy density fields $\rho^{g, i}$ and $\rho^{g, j}$ defined in tomographic bins $i$ and $j$. Combining the partial sky effect and tomographic binning results in an estimator $\hat{D}_{\ell}^{i j}$ for the cross- $(i \neq j)$ or auto- $(i = j)$ power spectrum of the data
 
@@ -259,7 +259,7 @@ D^{ij}_{\ell m} \equiv \frac{\Re(d_{\ell m}^i d_{\ell m}^{j \ast})}{J_{\ell m}}.
 \EQ{AlmPix}{
 d_{\ell m} = \sum_p \delta^g_p Y_{\ell m}^{\ast}(\theta_p,\phi_p) \Delta\Omega_p ,}
 
-\noindent where $(\theta_p,\phi_p)$ are the coordinates at the centre of pixel $p$, $\Delta\Omega_p$ is the area of $p$, and the sum is over all pixels in the survey region. Since the density field is being now discretised due to the pixalisation process, aliasing becomes an issue. This effect causes a false translation of power in certain multipoles if one samples bellow the Nyquist frequency. \footnote{The Nyquist frequency is highest frequency that can be calculated given a certain sampling rate, $\nu$, so the correct and complete signal can be recovered. It is defined to be $f_{Ny} = \nu/2$.} To avoid such issue, one should avoid measuring (and using) multipoles that are higher than twice the $N_{side}$, i. e. $\ell_{max} \leq 2N_{side}$.
+\noindent where $(\theta_p,\phi_p)$ are the coordinates at the centre of pixel $p$, $\Delta\Omega_p$ is the area of $p$, and the sum is over all pixels in the survey region. Since the density field is being now discretised due to the pixelisation process, aliasing becomes an issue. This effect causes a false translation of power in certain multipoles if one samples bellow the Nyquist frequency. \footnote{The Nyquist frequency is highest frequency that can be calculated given a certain sampling rate, $\nu$, so the correct and complete signal can be recovered. It is defined to be $f_{Ny} = \nu/2$.} To avoid such issue, one should avoid measuring (and using) multipoles that are higher than twice the $N_{side}$, i. e. $\ell_{max} \leq 2N_{side}$.
 
 \qquad Pixelisation is a smoothing operator, and hence suppresses power at small scales. I now summarise here the standard treatment of this effect; see \cite{Healpix,Boris2013} and the \healpix documentation for details\footnote{For details on the pixel window function: \url{https://healpix.jpl.nasa.gov/html/intronode14.htm}}. Consider the contribution of a given pixel $p$ to $d_{\ell m}$ both for the (measured) pixelised field and for the (desired) ideal continuous field; the ratio of these quantities is 
 
@@ -477,7 +477,7 @@ The rest of the calculation may proceed as usual.
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.45]{BOSS-FIGS/Rll_200_300.pdf}
-\caption[Slices through the Mixing Matrices.]{Slices through the Mixing Matrices (Figs. \ref{fig:MixMats}) for LOWZ (CMASS) using two different fixed multipoles values given by $\ell'=200$($250$), and $\ell'=300$($350$), where the amplitudes were normalized by $R_{\ell\ell}$. As expected, the maximum amplitude peaks in the fixed $\ell'$ and goes to zero in a given $\Delta\ell$. The profile shape of both matrices remains the same throughout the $\ell$-range, indicating the correlation introduced by the convolution with the mask on the PCL measurements presented in Fig. \ref{fig:PCLs}.}
+\caption[Slices through the Mixing Matrices.]{Slices through the Mixing Matrices (Figs. \ref{fig:MixMats}) for LOWZ (CMASS) using two different fixed multipoles values given by $\ell'=200$($250$), and $\ell'=300$($350$), where the amplitudes were normalised by $R_{\ell\ell}$. As expected, the maximum amplitude peaks in the fixed $\ell'$ and goes to zero in a given $\Delta\ell$. The profile shape of both matrices remains the same throughout the $\ell$-range, indicating the correlation introduced by the convolution with the mask on the PCL measurements presented in Fig. \ref{fig:PCLs}.}
 \label{fig:Rll_slice}
 \end{center}
 \end{figure}
@@ -570,7 +570,7 @@ and it encompasses for the Gaussian part of the covariance matrix. As in this wo
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.55]{BOSS-FIGS/MocksValidation.pdf}
-\caption[Mock's covariance matrix validation.]{An example used for the mock's covariance matrix validation: here I compare the analytical expression for the angular power spectrum variance (Equation \eqref{Eq:TheoVariance}) with the variance from the log-normal mocks using CMASS' first auto-power spectrum as an example. The bottom panel shows the relative error for this case. This validation was checked for each one of the 42 measured $C_{\ell}$'s from fig. \ref{fig:PCLs} and no trends are apparent.}
+\caption[Mock's covariance matrix validation.]{An example used for the mock's covariance matrix validation: here I compare the analytic expression for the angular power spectrum variance (Equation \eqref{Eq:TheoVariance}) with the variance from the log-normal mocks using CMASS' first auto-power spectrum as an example. The bottom panel shows the relative error for this case. This validation was checked for each one of the 42 measured $C_{\ell}$'s from fig. \ref{fig:PCLs} and no trends are apparent.}
 \label{fig:Mocks_Variance}
 \end{center}
 \end{figure}
@@ -715,7 +715,7 @@ The estimator for the cross-power spectra between the data overdensity maps, $\d
 \hat{S}^{gs}_{\ell} = \frac{1}{(2\ell+1)w_{\ell}^2}\sum_{m=-l}^l  \frac{\frac{1}{2}\left|d_{}^{g}  d_{\ell m}^{s*} + d_{\ell m}^{g*}  d_{\ell m}^{s}\right|}{J_{\ell m}}
 \label{Eq:Sl_wlSyst}
 \end{equation}
-where the index \textit{g} stands for a data map, and \textit{s} for a systematics map. I then obtain the estimates for the variance of the systematics cross-power spectra by measuring the $\hat{S}^{gs}_{\ell}$ (Equation \eqref{Eq:Sl_wlSyst}) between the Systematics maps and the data mocks described in Section \ref{Sec:Cov}.
+where the index \textit{g} stands for a data map, and \textit{s} for a systematics map. I then obtain the estimates for the variance of the systematics cross-power spectra by measuring the $\hat{S}^{gs}_{\ell}$ (Equation \eqref{Eq:Sl_wlSyst}) between the Systematic maps and the data mocks described in Section \ref{Sec:Cov}.
 
 \qquad I cross-correlated all 13 tomographic redshift bins with all 18 systematic maps, resulting in a total of 234 cross-power spectra. Figure \ref{fig:SystBin3} shows an example for LOWZ--3 and CMASS--9 bins and cross-power spectra for all systematics. The full results are shown in Appendix \ref{Apx:Systematics}. From all of these, the majority of measurements are consistent with the variance of the data measured from the log-normal simulation (Section \ref{Sec:Cov}), which lead me to be confident in using the full shape of the measured $C_{\ell}$s. Note, however, that a few of the large scale measurements (low-$\ell$) in CMASS sample have a small excess in cross-power spectra with stellar overdensity. The first point on the cross-power spectra between some of the systematic maps and most BOSS bins is clearly more than one sigma away from the data's variance. Due to this excess in correlation with stellar overdensity and the level of cosmic variance on the first $\ell$-band, I decided to exclude this first point from the cosmological analysis (see Chapter \ref{Chap:BOSS-Cosmo} for details on the $\ell$ range used). As for the second $\ell$-band ($\ell = 13.5$) presenting an excess of correlation between a few bins and stellar overdensity: I found it to be sub-dominant, with no significant impact from this measurement in our cosmological analysis; therefore, I decided to keep it.
 
